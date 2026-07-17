@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="KarbonCred seller dashboard for project submission, carbon-credit calculation, audit approval, and marketplace listing."
+  />
+
+  <title>KarbonCred | Seller Dashboard</title>
+
+  <link
+    rel="stylesheet"
+    href="css/main.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/seller.css"
+  />
+</head>
+
+<body>
+  <div class="app">
+    <!-- ===================================================
+         SELLER SIDEBAR
+    ==================================================== -->
+
+    <aside class="sidebar">
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="KarbonCred home"
+      >
+        Karbon<span>Cred</span>
+      </a>
+
+      <div class="profile">
+        <div
+          class="avatar"
+          data-user-initial
+          data-seller-initial
+        >
+          KS
+        </div>
+
+        <div>
+          <b data-user-name>
+            Demo Seller
+          </b>
+
+          <span>
+            Verified Seller
+          </span>
+        </div>
+      </div>
+
+      <nav
+        class="side-nav"
+        aria-label="Seller dashboard navigation"
+      >
+        <button
+          type="button"
+          class="side active"
+          data-section="dashboardSection"
+          data-title="Seller Dashboard"
+          data-subtitle="Overview"
+        >
+          Dashboard
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="projectSection"
+          data-title="Project Submission"
+          data-subtitle="Add verified producer data"
+        >
+          Add Project
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="calculationSection"
+          data-title="AI Credit Calculation"
+          data-subtitle="Estimate carbon reductions"
+        >
+          AI Calculation
+        </button>
+
+        
+
+        
+          <button
+  type="button"
+  class="side"
+  data-section="creditsSection"
+  data-title="Issued Credits"
+  data-subtitle="Manage approved inventory"
+>
+  My Credits
+</button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="listingSection"
+          data-title="Create Listing"
+          data-subtitle="List credits for buyers"
+        >
+          Create Listing
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="marketplaceSection"
+          data-title="Marketplace Listings"
+          data-subtitle="Manage active listings"
+        >
+          Marketplace
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="transactionSection"
+          data-title="Seller Transactions"
+          data-subtitle="Listings, sales, and earnings"
+        >
+          Transactions
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="profileSection"
+          data-title="Seller Profile"
+          data-subtitle="Account details"
+        >
+          Profile
+        </button>
+      </nav>
+
+      <button
+        type="button"
+        class="btn ghost logout"
+        data-logout
+      >
+        Logout
+      </button>
+    </aside>
+
+    <!-- ===================================================
+         SELLER MAIN CONTENT
+    ==================================================== -->
+
+    <main class="dash">
+      <header class="dash-head">
+        <div>
+          <span id="dashboardSubtitle">
+            Overview
+          </span>
+
+          <h1 id="dashboardTitle">
+            Seller Dashboard
+          </h1>
+        </div>
+
+        <div class="verified">
+          Verified Seller
+        </div>
+      </header>
+
+      <!-- =================================================
+           DASHBOARD OVERVIEW
+      ================================================== -->
+
+      <section
+        class="dash-section active"
+        id="dashboardSection"
+      >
+        <div class="welcome">
+          <div>
+            <span>
+              Welcome to KarbonCred
+            </span>
+
+            <h2>
+              Convert verified clean-energy data
+              into trusted carbon credits.
+            </h2>
+
+            <p>
+              Submit your producer data, calculate
+              estimated carbon reductions, complete
+              the audit workflow, and list approved
+              credits in the marketplace.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="btn primary large"
+            onclick="openSellerSection('projectSection')"
+          >
+            Add New Project
+          </button>
+        </div>
+
+        <div class="metrics">
+          <article>
+            <span>
+              Total Projects
+            </span>
+
+            <b id="dashboardProjectCount">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Credits Issued
+            </span>
+
+            <b id="dashboardIssuedCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Credits Listed
+            </span>
+
+            <b id="dashboardListedCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Seller Earnings
+            </span>
+
+            <b id="dashboardSellerEarnings">
+              ₹0
+            </b>
+          </article>
+        </div>
+
+        <div class="two-col dashboard-spacing">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Seller Overview
+              </span>
+
+              <h3>
+                Project and credit progress
+              </h3>
+            </div>
+
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Projects Added
+                  </span>
+
+                  <b id="totalProjects">
+                    0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 65%;"></span>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Credits Issued
+                  </span>
+
+                  <b id="issuedCredits">
+                    0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 55%;"></span>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Credits Available
+                  </span>
+
+                  <b id="availableCredits">
+                    0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 45%;"></span>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Approved Projects
+                  </span>
+
+                  <b id="approvedProjectCount">
+                    0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 35%;"></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Recent Activity
+              </span>
+
+              <h3>
+                Latest seller actions
+              </h3>
+            </div>
+
+            <div
+              class="activity-list"
+              id="sellerActivityList"
+            >
+              <div>
+                <span>
+                  Welcome
+                </span>
+
+                <p>
+                  Your listings and seller transactions
+                  will appear here.
+                </p>
+
+                <b>
+                  Now
+                </b>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="two-col dashboard-spacing">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Start Workflow
+              </span>
+
+              <h3>
+                Submit producer data
+              </h3>
+            </div>
+
+            <p>
+              Enter the IES producer reference,
+              location, energy generation, capacity,
+              grid composition, and reporting period.
+            </p>
+
+            <button
+              type="button"
+              class="btn primary"
+              onclick="openSellerSection('projectSection')"
+            >
+              Submit Project
+            </button>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Marketplace
+              </span>
+
+              <h3>
+                List approved credits
+              </h3>
+            </div>
+
+            <p>
+              Credits can be listed only after
+              successful carbon calculation, manual
+              audit, and CCTS approval.
+            </p>
+
+            <button
+              type="button"
+              class="btn ghost"
+              onclick="openSellerSection('creditsSection')"
+            >
+              View Issued Credits
+            </button>
+          </article>
+        </div>
+        hboard-spacing">
+  <div class="panel-heading">
+    <span>Project Lif<div class="panel dasecycle</span>
+    <h3>Project Verification and Transaction Cycle</h3>
+  </div>
+
+  <label for="dashboardProjectSelector">
+    Select Project
+
+    <select id="dashboardProjectSelector">
+      <option value="">
+        Select a project
+      </option>
+    </select>
+  </label>
+
+  <div
+    class="audit-list"
+    id="projectProcessCard"
+    style="margin-top: 20px;"
+  >
+    <article>
+      <b>1</b>
+
+      <div>
+        <h3>Project Submitted</h3>
+        <p>Producer and project data submitted.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>2</b>
+
+      <div>
+        <h3>AI Calculation</h3>
+        <p>Estimated carbon credits calculated.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>3</b>
+
+      <div>
+        <h3>Manual Audit</h3>
+        <p>Project documents reviewed by auditor.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>4</b>
+
+      <div>
+        <h3>CCTS Approval</h3>
+        <p>Project waiting for CCTS approval.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>5</b>
+
+      <div>
+        <h3>Credits Issued</h3>
+        <p>Approved credits added to inventory.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>6</b>
+
+      <div>
+        <h3>Marketplace Listing</h3>
+        <p>Credits listed for buyer purchase.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>7</b>
+
+      <div>
+        <h3>Buyer Purchase</h3>
+        <p>Buyer purchases listed carbon credits.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>8</b>
+
+      <div>
+        <h3>Seller Settlement</h3>
+        <p>Payment settled after platform commission.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+  </div>
+</div>
+<div class="panel dashboard-spacing">
+  <div class="panel-heading">
+    <span>Project Tracker</span>
+    <h3>Project Verification Status</h3>
+  </div>
+
+  <div class="audit-list">
+    <article class="done">
+      <b>1</b>
+
+      <div>
+        <h3>Project Submitted</h3>
+        <p>Producer and project data submitted.</p>
+      </div>
+
+      <span>Completed</span>
+    </article>
+
+    <article class="current">
+      <b>2</b>
+
+      <div>
+        <h3>AI Calculation</h3>
+        <p>Estimated carbon credits are calculated.</p>
+      </div>
+
+      <span>In Progress</span>
+    </article>
+
+    <article>
+      <b>3</b>
+
+      <div>
+        <h3>Manual Audit</h3>
+        <p>Project documents are reviewed.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>4</b>
+
+      <div>
+        <h3>CCTS Approval</h3>
+        <p>Project waits for CCTS approval.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>5</b>
+
+      <div>
+        <h3>Credits Issued</h3>
+        <p>Approved credits are added to inventory.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+
+    <article>
+      <b>6</b>
+
+      <div>
+        <h3>Marketplace Listing</h3>
+        <p>Credits are listed for buyers.</p>
+      </div>
+
+      <span>Pending</span>
+    </article>
+  </div>
+</div>
+      </section>
+
+      <!-- =================================================
+           PROJECT SUBMISSION SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="projectSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              IES Producer Data
+            </span>
+
+            <h2>
+              Submit a clean-energy project
+            </h2>
+
+            <p>
+              Add verified producer and generation
+              details before calculating carbon-credit
+              eligibility.
+            </p>
+          </div>
+
+          <div class="verified">
+            Data Verification Required
+          </div>
+        </div>
+
+        <div class="two-col">
+          <!-- =============================================
+               PROJECT FORM
+          ============================================== -->
+
+          <form
+            class="panel"
+            id="projectForm"
+          >
+            <div class="panel-heading">
+              <span>
+                Project Information
+              </span>
+
+              <h3>
+                Producer and energy details
+              </h3>
+            </div>
+
+            <div class="form-row">
+              <label for="producerRefId">
+                IES Producer Reference ID
+
+                <input
+                  type="text"
+                  id="producerRefId"
+                  name="producerRefId"
+                  placeholder="Example: IES-DL-001"
+                  required
+                />
+              </label>
+
+              <label for="producerName">
+                Producer Name
+
+                <input
+                  type="text"
+                  id="producerName"
+                  name="producerName"
+                  placeholder="Registered producer name"
+                  required
+                />
+              </label>
+            </div>
+
+            <label for="projectName">
+              Project Name
+
+              <input
+                type="text"
+                id="projectName"
+                name="projectName"
+                placeholder="Example: Delhi Rooftop Solar Project"
+                required
+              />
+            </label>
+
+            <div class="form-row">
+              <label for="producerType">
+                Producer Type
+
+                <select
+                  id="producerType"
+                  name="producerType"
+                  required
+                >
+                  <option value="">
+                    Select project type
+                  </option>
+
+                  <option value="rooftop_solar">
+                    Rooftop Solar
+                  </option>
+
+                  <option value="solar">
+                    Solar Energy
+                  </option>
+
+                  <option value="msme_wind">
+                    MSME Wind
+                  </option>
+
+                  <option value="wind">
+                    Wind Energy
+                  </option>
+
+                  <option value="biomass">
+                    Biomass Energy
+                  </option>
+
+                  <option value="hydro">
+                    Hydro Energy
+                  </option>
+
+                  <option value="efficiency">
+                    Energy Efficiency
+                  </option>
+                </select>
+              </label>
+
+              <label for="period">
+                Reporting Period
+
+                <input
+                  type="text"
+                  id="period"
+                  name="period"
+                  placeholder="Example: Q1-2026"
+                  required
+                />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label for="location">
+                Location
+
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="City or district"
+                  required
+                />
+              </label>
+
+              <label for="state">
+                State
+
+                <select
+                  id="state"
+                  name="state"
+                  required
+                >
+                  <option value="">
+                    Select state
+                  </option>
+
+                  <option value="Delhi">
+                    Delhi
+                  </option>
+
+                  <option value="Gujarat">
+                    Gujarat
+                  </option>
+
+                  <option value="Haryana">
+                    Haryana
+                  </option>
+
+                  <option value="Himachal Pradesh">
+                    Himachal Pradesh
+                  </option>
+
+                  <option value="Karnataka">
+                    Karnataka
+                  </option>
+
+                  <option value="Madhya Pradesh">
+                    Madhya Pradesh
+                  </option>
+
+                  <option value="Maharashtra">
+                    Maharashtra
+                  </option>
+
+                  <option value="Punjab">
+                    Punjab
+                  </option>
+
+                  <option value="Rajasthan">
+                    Rajasthan
+                  </option>
+
+                  <option value="Tamil Nadu">
+                    Tamil Nadu
+                  </option>
+
+                  <option value="Uttar Pradesh">
+                    Uttar Pradesh
+                  </option>
+
+                  <option value="Uttarakhand">
+                    Uttarakhand
+                  </option>
+
+                  <option value="West Bengal">
+                    West Bengal
+                  </option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label for="capacityKw">
+                Installed Capacity (kW)
+
+                <input
+                  type="number"
+                  id="capacityKw"
+                  name="capacityKw"
+                  placeholder="Example: 500"
+                  min="0"
+                  step="0.01"
+                  required
+                />
+              </label>
+
+              <label for="energyGeneratedKwh">
+                Energy Generated (kWh)
+
+                <input
+                  type="number"
+                  id="energyGeneratedKwh"
+                  name="energyGeneratedKwh"
+                  placeholder="Example: 250000"
+                  min="0"
+                  step="0.01"
+                  required
+                />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label for="gridFossilPercent">
+                Grid Fossil Percentage
+
+                <input
+                  type="number"
+                  id="gridFossilPercent"
+                  name="gridFossilPercent"
+                  placeholder="Example: 70"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  required
+                />
+              </label>
+
+              <label for="gridRenewablePercent">
+                Grid Renewable Percentage
+
+                <input
+                  type="number"
+                  id="gridRenewablePercent"
+                  name="gridRenewablePercent"
+                  placeholder="Example: 30"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  required
+                />
+              </label>
+            </div>
+
+            <label for="methodology">
+              Calculation Methodology
+
+              <select
+                id="methodology"
+                name="methodology"
+              >
+                <option value="Grid Displacement Method">
+                  Grid Displacement Method
+                </option>
+
+                <option value="Renewable Energy Generation">
+                  Renewable Energy Generation
+                </option>
+
+                <option value="Industrial Energy Efficiency">
+                  Industrial Energy Efficiency
+                </option>
+
+                <option value="Biomass Avoidance Method">
+                  Biomass Avoidance Method
+                </option>
+              </select>
+            </label>
+
+            <div class="upload-section">
+              <label for="projectDocument">
+                Supporting Project Document
+
+                <input
+                  type="file"
+                  id="projectDocument"
+                  name="projectDocument"
+                  accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.jpg,.jpeg,.png"
+                />
+              </label>
+
+              <p>
+                Upload generation records, invoices,
+                meter data, IES evidence, or project
+                verification documents.
+              </p>
+            </div>
+
+            <p
+              class="msg"
+              id="projectFormMessage"
+              aria-live="polite"
+            ></p>
+
+            <button
+              type="submit"
+              class="btn primary full"
+            >
+              Save and Calculate Credits
+            </button>
+          </form>
+
+          <!-- =============================================
+               DATA REQUIREMENTS
+          ============================================== -->
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Submission Checklist
+              </span>
+
+              <h3>
+                Required project evidence
+              </h3>
+            </div>
+
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    IES Producer Record
+                  </span>
+
+                  <b>
+                    Required
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  The producer reference should match
+                  the verified IES data record.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Energy Generation
+                  </span>
+
+                  <b>
+                    Required
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Enter the energy generated during
+                  the selected reporting period.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Grid Composition
+                  </span>
+
+                  <b>
+                    Required
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Fossil and renewable percentages
+                  help calculate displaced emissions.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Supporting Evidence
+                  </span>
+
+                  <b>
+                    Recommended
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Documents improve the calculation
+                  confidence score and support audit.
+                </p>
+              </div>
+            </div>
+
+            <div class="credit-info">
+              <div>
+                <span>
+                  Calculation Unit
+                </span>
+
+                <b>
+                  tCO₂e
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Credit Conversion
+                </span>
+
+                <b>
+                  1 Credit = 1 tCO₂e
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Verification
+                </span>
+
+                <b>
+                  Manual Audit
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Final Approval
+                </span>
+
+                <b>
+                  CCTS Workflow
+                </b>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ===============================================
+             PROJECT TABLE
+        ================================================ -->
+
+        <div class="table-wrap dashboard-spacing">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  IES Reference
+                </th>
+
+                <th>
+                  Project
+                </th>
+
+                <th>
+                  Type
+                </th>
+
+                <th>
+                  State
+                </th>
+
+                <th>
+                  Energy
+                </th>
+
+                <th>
+                  Credits
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="projectTableBody">
+              <tr>
+                <td colspan="8">
+                  No projects submitted yet.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =================================================
+           AI CALCULATION SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="calculationSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              AI-Assisted Estimation
+            </span>
+
+            <h2>
+              Calculate estimated carbon credits
+            </h2>
+
+            <p>
+              The calculation uses energy generation,
+              grid-emission factors, fossil displacement,
+              leakage, and uncertainty deductions.
+            </p>
+          </div>
+
+          <div class="verified">
+            Preliminary Estimate
+          </div>
+        </div>
+
+        <div class="two-col">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Project Selection
+              </span>
+
+              <h3>
+                Select a saved project
+              </h3>
+            </div>
+
+            <label for="calculationProject">
+              Project
+
+              <select id="calculationProject">
+                <option value="">
+                  Select a project
+                </option>
+              </select>
+            </label>
+
+            <button
+              type="button"
+              class="btn primary full"
+              id="calculateCreditsButton"
+            >
+              Run AI Credit Calculation
+            </button>
+
+            <div class="credit-info">
+              <div>
+                <span>
+                  Emission Factor
+                </span>
+
+                <b id="gridEmissionFactor">
+                  0.00 kg CO₂e/kWh
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Confidence Score
+                </span>
+
+                <b id="confidenceScore">
+                  0%
+                </b>
+              </div>
+            </div>
+
+            <div class="progress-track">
+              <span
+                id="confidenceBar"
+                style="width: 0%;"
+              ></span>
+            </div>
+
+            <p
+              style="
+                color: var(--muted);
+                line-height: 1.7;
+              "
+            >
+              This is a prototype estimate. Final
+              issuance depends on document review,
+              manual audit, and applicable CCTS rules.
+            </p>
+          </article>
+
+          <article class="panel result-card">
+            <span>
+              Estimated Carbon Credits
+            </span>
+
+            <b id="calculatedCredits">
+              0
+            </b>
+
+            <p>
+              Credits calculated for
+              <strong id="calculationProjectName">
+                the selected project
+              </strong>
+            </p>
+
+            <div class="breakdown">
+              <div>
+                <span>
+                  Gross Avoided Emissions
+                </span>
+
+                <b id="grossEmissions">
+                  0.00 tCO₂e
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Fossil Energy Displaced
+                </span>
+
+                <b id="fossilDisplaced">
+                  0 kWh
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Leakage Deduction
+                </span>
+
+                <b id="leakageDeduction">
+                  0.00 tCO₂e
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Uncertainty Deduction
+                </span>
+
+                <b id="uncertaintyDeduction">
+                  0.00 tCO₂e
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Net Carbon Reduction
+                </span>
+
+                <b id="netCarbonReduction">
+                  0.00 tCO₂e
+                </b>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =================================================
+           AUDIT AND CCTS SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="auditSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              Verification Workflow
+            </span>
+
+            <h2>
+              Complete manual audit and CCTS approval
+            </h2>
+
+            <p>
+              Credits can be issued only after
+              project evidence and calculations are
+              reviewed and approved.
+            </p>
+          </div>
+
+          <div class="verified">
+            Controlled Issuance
+          </div>
+        </div>
+
+        <div class="two-col">
+          <form
+            class="panel"
+            id="auditSubmissionForm"
+          >
+            <div class="panel-heading">
+              <span>
+                Audit Submission
+              </span>
+
+              <h3>
+                Select a calculated project
+              </h3>
+            </div>
+
+            <label for="auditProject">
+              Project
+
+              <select
+                id="auditProject"
+                required
+              >
+                <option value="">
+                  Select a project
+                </option>
+              </select>
+            </label>
+
+            <div class="upload-section">
+              <label for="auditDocument">
+                Audit Supporting Document
+
+                <input
+                  type="file"
+                  id="auditDocument"
+                  name="auditDocument"
+                  accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
+                />
+              </label>
+
+              <p>
+                Upload the calculation report, generation
+                records, methodology evidence, or auditor
+                documentation.
+              </p>
+            </div>
+
+            <button
+              type="submit"
+              class="btn primary full"
+            >
+              Submit Project for Audit
+            </button>
+          </form>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Approval Stages
+              </span>
+
+              <h3>
+                Credit issuance workflow
+              </h3>
+            </div>
+
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    1. AI Calculation
+                  </span>
+
+                  <b>
+                    Preliminary
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Estimated credits are calculated from
+                  verified energy and grid data.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    2. Manual Audit
+                  </span>
+
+                  <b>
+                    Verification
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Project evidence and methodology are
+                  reviewed by an independent auditor.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    3. CCTS Approval
+                  </span>
+
+                  <b>
+                    Authorization
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Approved projects enter the applicable
+                  credit issuance and registry workflow.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    4. Credit Issuance
+                  </span>
+
+                  <b>
+                    Marketplace Ready
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Issued credits receive unique IDs,
+                  vintage details, and certificates.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div
+          class="audit-list dashboard-spacing"
+          id="auditList"
+        >
+          <div class="panel">
+            <h3>
+              No audit records
+            </h3>
+
+            <p>
+              Add and calculate a project before
+              beginning the verification workflow.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================
+           ISSUED CREDITS SECTION START
+           Continue from here in Part B
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="creditsSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              Approved Inventory
+            </span>
+
+            <h2>
+              Manage issued carbon credits
+            </h2>
+
+            <p>
+              View total issued, available, listed,
+              sold, and certified project credits.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="btn primary"
+            onclick="openSellerSection('listingSection')"
+          >
+            Create Listing
+          </button>
+        </div>
+
+        <div class="metrics">
+          <article>
+            <span>
+              Total Issued
+            </span>
+
+            <b id="issuedCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Available
+            </span>
+
+            <b id="availableCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Listed
+            </span>
+
+            <b id="listedCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Sold
+            </span>
+
+            <b id="soldCredits">
+              0
+            </b>
+          </article>
+        </div>
+
+        <div
+          class="two-col dashboard-spacing"
+          id="sellerCreditGrid"
+        >
+          <!-- Issued credit cards generated by seller.js -->
+        </div>
+                <div class="table-wrap dashboard-spacing">
+          <table>
+            <thead>
+              <tr>
+                <th>Credit ID</th>
+                <th>Project</th>
+                <th>Total Issued</th>
+                <th>Available</th>
+                <th>Listed</th>
+                <th>Sold</th>
+                <th>Vintage</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="sellerCreditTableBody">
+              <tr>
+                <td colspan="9">
+                  No credits issued yet.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =================================================
+           CREATE LISTING SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="listingSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>Marketplace Listing</span>
+
+            <h2>
+              List your approved carbon credits
+            </h2>
+
+            <p>
+              Select issued credits, enter the listing
+              quantity, and set a price per credit.
+            </p>
+          </div>
+
+          <div class="verified">
+            CCTS Approved Only
+          </div>
+        </div>
+
+        <div class="two-col">
+          <form
+            class="panel"
+            id="listingForm"
+          >
+            <div class="panel-heading">
+              <span>Listing Details</span>
+
+              <h3>
+                Create a marketplace listing
+              </h3>
+            </div>
+
+            <label for="listingCredit">
+              Issued Credit
+
+              <select
+                id="listingCredit"
+                name="listingCredit"
+                required
+              >
+                <option value="">
+                  Select issued credit
+                </option>
+              </select>
+            </label>
+
+            <div class="credit-info">
+              <div>
+                <span>Project</span>
+
+                <b id="listingProjectName">
+                  Select a credit
+                </b>
+              </div>
+
+              <div>
+                <span>Credit ID</span>
+
+                <b id="listingCreditId">
+                  -
+                </b>
+              </div>
+
+              <div>
+                <span>Available</span>
+
+                <b id="listingAvailableCredits">
+                  0 Credits
+                </b>
+              </div>
+
+              <div>
+                <span>Verification</span>
+
+                <b>
+                  CCTS Approved
+                </b>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="listingQuantity">
+                Listing Quantity
+
+                <input
+                  type="number"
+                  id="listingQuantity"
+                  name="listingQuantity"
+                  min="1"
+                  value="1"
+                  required
+                />
+              </label>
+
+              <label for="listingPrice">
+                Price per Credit
+
+                <input
+                  type="number"
+                  id="listingPrice"
+                  name="listingPrice"
+                  min="1"
+                  step="0.01"
+                  value="750"
+                  required
+                />
+              </label>
+            </div>
+
+            <p
+              class="msg"
+              id="listingMessage"
+              aria-live="polite"
+            ></p>
+
+            <button
+              type="submit"
+              class="btn primary full"
+            >
+              List Credits on Marketplace
+            </button>
+          </form>
+
+          <article class="listing-preview">
+            <div class="credit-top">
+              <span
+                class="pill"
+                id="previewProjectType"
+              >
+                Project Type
+              </span>
+
+              <small id="previewCreditId">
+                KC-CREDIT
+              </small>
+            </div>
+
+            <h3 id="previewProjectName">
+              Select a project
+            </h3>
+
+            <p id="previewLocation">
+              Project Location
+            </p>
+
+            <div class="credit-info">
+              <div>
+                <span>Quantity</span>
+
+                <b id="previewQuantity">
+                  0 Credits
+                </b>
+              </div>
+
+              <div>
+                <span>Price</span>
+
+                <b id="previewPrice">
+                  ₹0
+                </b>
+              </div>
+
+              <div>
+                <span>Listing Value</span>
+
+                <b id="previewListingValue">
+                  ₹0
+                </b>
+              </div>
+
+              <div>
+                <span>Verification</span>
+
+                <b>
+                  CCTS Approved
+                </b>
+              </div>
+            </div>
+
+            <div
+              class="barcode"
+              aria-label="Listing verification barcode"
+            ></div>
+
+            <button
+              type="button"
+              class="btn ghost"
+              disabled
+            >
+              Marketplace Preview
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <!-- =================================================
+           MARKETPLACE LISTINGS SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="marketplaceSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>Active Listings</span>
+
+            <h2>
+              Manage your marketplace inventory
+            </h2>
+
+            <p>
+              Review active listings, available
+              quantities, pricing, and listing value.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="btn primary"
+            onclick="openSellerSection('listingSection')"
+          >
+            Create New Listing
+          </button>
+        </div>
+
+        <div
+          class="two-col"
+          id="sellerListingGrid"
+        >
+          <div class="panel">
+            <h3>
+              No marketplace listings
+            </h3>
+
+            <p>
+              List issued credits to make them
+              available to buyers.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrap dashboard-spacing">
+          <table>
+            <thead>
+              <tr>
+                <th>Listing ID</th>
+                <th>Project</th>
+                <th>Listed</th>
+                <th>Available</th>
+                <th>Price</th>
+                <th>Listing Value</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="sellerListingTableBody">
+              <tr>
+                <td colspan="8">
+                  No active listings available.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =================================================
+           SELLER TRANSACTIONS SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="transactionSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>Transaction Records</span>
+
+            <h2>
+              Review listings, sales, and earnings
+            </h2>
+
+            <p>
+              Every seller action is recorded with a
+              unique transaction reference.
+            </p>
+          </div>
+
+          <div class="verified">
+            Traceable Records
+          </div>
+        </div>
+
+        <div class="metrics">
+          <article>
+            <span>Listed Credits</span>
+
+            <b id="listedCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>Sold Credits</span>
+
+            <b id="soldCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>Seller Earnings</span>
+
+            <b id="sellerEarnings">
+              ₹0
+            </b>
+          </article>
+
+          <article>
+            <span>Approved Projects</span>
+
+            <b id="approvedProjectCount">
+              0
+            </b>
+          </article>
+        </div>
+
+        <div class="table-wrap dashboard-spacing">
+          <table>
+            <thead>
+              <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Project</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody id="sellerTransactionTableBody">
+              <tr>
+                <td colspan="7">
+                  No seller transactions available.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =================================================
+           SELLER PROFILE SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="profileSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>Seller Account</span>
+
+            <h2>
+              Account and verification details
+            </h2>
+
+            <p>
+              Review your seller identity, role,
+              marketplace access, and account status.
+            </p>
+          </div>
+
+          <div class="verified">
+            Verified Seller
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <article>
+            <span>Seller Name</span>
+
+            <b id="profileSellerName">
+              Demo Seller
+            </b>
+          </article>
+
+          <article>
+            <span>Email Address</span>
+
+            <b id="profileSellerEmail">
+              seller@karboncred.in
+            </b>
+          </article>
+
+          <article>
+            <span>Account Role</span>
+
+            <b id="profileSellerRole">
+              Seller
+            </b>
+          </article>
+
+          <article>
+            <span>Seller ID</span>
+
+            <b id="profileSellerId">
+              DEMO-SELLER
+            </b>
+          </article>
+
+          <article>
+            <span>Verification Status</span>
+
+            <b id="profileSellerVerification">
+              Verified
+            </b>
+          </article>
+
+          <article>
+            <span>Project Access</span>
+
+            <b>
+              Enabled
+            </b>
+          </article>
+
+          <article>
+            <span>Marketplace Access</span>
+
+            <b>
+              Active
+            </b>
+          </article>
+
+          <article>
+            <span>Credit Issuance</span>
+
+            <b>
+              Audit Required
+            </b>
+          </article>
+        </div>
+
+        <div class="two-col dashboard-spacing">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>Seller Workflow</span>
+
+              <h3>
+                Account permissions
+              </h3>
+            </div>
+
+            <div class="credit-info">
+              <div>
+                <span>Project Submission</span>
+                <b>Enabled</b>
+              </div>
+
+              <div>
+                <span>AI Calculation</span>
+                <b>Enabled</b>
+              </div>
+
+              <div>
+                <span>Audit Submission</span>
+                <b>Enabled</b>
+              </div>
+
+              <div>
+                <span>Marketplace Listing</span>
+                <b>After Approval</b>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>Account Actions</span>
+
+              <h3>
+                Manage your session
+              </h3>
+            </div>
+
+            <p>
+              Logging out removes your active session
+              from this browser. Prototype project and
+              listing data remains saved locally.
+            </p>
+
+            <button
+              type="button"
+              class="btn ghost logout"
+              data-logout
+            >
+              Logout from Seller Dashboard
+            </button>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="js/main.js"></script>
+  <script src="js/seller.js"></script>
+</body>
+</html>

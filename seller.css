@@ -1,0 +1,1562 @@
+/* =========================================================
+   KARBONCRED SELLER DASHBOARD
+   File: css/seller.css
+   Used only by seller.html
+========================================================= */
+
+/* =========================================================
+   SELLER APP LAYOUT
+========================================================= */
+
+.app {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns:
+    280px minmax(0, 1fr);
+}
+
+/* =========================================================
+   SELLER SIDEBAR
+========================================================= */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #07131f 0%,
+      #0b1b2b 100%
+    );
+
+  border-right:
+    1px solid var(--border);
+}
+
+.sidebar .logo {
+  margin-bottom: 24px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px;
+  margin-bottom: 24px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 18px;
+
+  background:
+    rgba(16, 35, 55, 0.82);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  color: #00140b;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--cyan)
+    );
+
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.profile b,
+.profile span {
+  display: block;
+}
+
+.profile span {
+  margin-top: 3px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.side-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.side {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border-radius: 14px;
+
+  color: var(--muted);
+  background: transparent;
+
+  font-weight: 850;
+  text-align: left;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.side:hover {
+  color: var(--primary);
+
+  background:
+    rgba(0, 210, 106, 0.08);
+
+  transform: translateX(3px);
+}
+
+.side.active {
+  color: var(--primary);
+
+  background:
+    rgba(0, 210, 106, 0.12);
+
+  border:
+    1px solid rgba(0, 210, 106, 0.2);
+}
+
+.logout {
+  margin-top: auto;
+}
+
+/* =========================================================
+   SELLER MAIN DASHBOARD
+========================================================= */
+
+.dash {
+  min-width: 0;
+
+  padding: 28px;
+}
+
+.dash-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-bottom: 22px;
+  margin-bottom: 26px;
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+.dash-head span {
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.dash-head h1 {
+  margin-top: 4px;
+
+  font-size: 29px;
+}
+
+.verified {
+  padding: 9px 13px;
+
+  border:
+    1px solid var(--border-green);
+
+  border-radius: 999px;
+
+  color: var(--primary);
+
+  background:
+    var(--primary-soft);
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* =========================================================
+   SELLER SECTIONS
+========================================================= */
+
+.dash-section {
+  display: none;
+}
+
+.dash-section.active {
+  display: block;
+}
+
+/* =========================================================
+   SELLER WELCOME BOX
+========================================================= */
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 26px;
+  margin-bottom: 22px;
+
+  border:
+    1px solid var(--border-green);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 210, 106, 0.12),
+      rgba(0, 194, 255, 0.08)
+    );
+}
+
+.welcome.small {
+  padding: 20px 24px;
+}
+
+.welcome > div > span {
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.welcome h2 {
+  margin: 8px 0;
+
+  font-size:
+    clamp(28px, 3vw, 42px);
+
+  line-height: 1.1;
+}
+
+.welcome p {
+  color: var(--text-soft);
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   SELLER METRICS
+========================================================= */
+
+.metrics {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.metrics article {
+  padding: 22px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.metrics article:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    var(--border-green);
+}
+
+.metrics span {
+  color: var(--muted);
+}
+
+.metrics b {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--primary);
+
+  font-size: 36px;
+}
+
+/* =========================================================
+   TWO COLUMN LAYOUT
+========================================================= */
+
+.two-col {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 20px;
+}
+
+.dashboard-spacing {
+  margin-top: 22px;
+}
+
+/* =========================================================
+   PROGRESS LIST
+========================================================= */
+
+.progress-list {
+  display: grid;
+  gap: 15px;
+}
+
+.progress-item {
+  padding: 13px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(6, 17, 29, 0.55);
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 9px;
+}
+
+.progress-text span {
+  color: var(--text-soft);
+}
+
+.progress-text b {
+  color: var(--primary);
+}
+
+.progress-track {
+  height: 9px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.progress-track span {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary),
+      var(--cyan)
+    );
+}
+
+/* =========================================================
+   RECENT ACTIVITY
+========================================================= */
+
+.activity-list {
+  display: grid;
+  gap: 13px;
+}
+
+.activity-list > div {
+  display: grid;
+  grid-template-columns:
+    auto minmax(0, 1fr) auto;
+
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(6, 17, 29, 0.55);
+}
+
+.activity-list span {
+  color: var(--primary);
+
+  font-weight: 850;
+}
+
+.activity-list p {
+  color: var(--text-soft);
+
+  line-height: 1.5;
+}
+
+.activity-list b {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   PROJECT FORM
+========================================================= */
+
+#projectForm {
+  max-width: 100%;
+}
+
+.upload-section {
+  padding: 20px;
+
+  border:
+    1px dashed var(--border-green);
+
+  border-radius: 18px;
+
+  background:
+    rgba(0, 210, 106, 0.04);
+}
+
+.upload-section p {
+  margin-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   AI CALCULATION RESULT
+========================================================= */
+
+.result-card {
+  align-content: center;
+  text-align: center;
+}
+
+.result-card > span {
+  color: var(--muted);
+
+  font-size: 15px;
+}
+
+.result-card > b {
+  display: block;
+
+  margin: 12px 0;
+
+  color: var(--primary);
+
+  font-size: 72px;
+  line-height: 1;
+}
+
+.result-card > p {
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+.breakdown {
+  display: grid;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.breakdown > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 12px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(6, 17, 29, 0.55);
+}
+
+.breakdown span {
+  color: var(--text-soft);
+}
+
+.breakdown b {
+  color: var(--primary);
+}
+
+/* =========================================================
+   AUDIT & CCTS TIMELINE
+========================================================= */
+
+.audit-list {
+  display: grid;
+  gap: 14px;
+}
+
+.audit-list article {
+  display: grid;
+  grid-template-columns:
+    auto minmax(0, 1fr) auto;
+
+  align-items: center;
+  gap: 16px;
+
+  padding: 20px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.audit-list article:hover {
+  transform: translateY(-3px);
+}
+
+.audit-list article > b {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background:
+    var(--surface-light);
+}
+
+.audit-list article h3 {
+  font-size: 18px;
+}
+
+.audit-list article p {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+.audit-list article > span {
+  color: var(--muted);
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.audit-list .done {
+  border-color:
+    var(--border-green);
+}
+
+.audit-list .done > b {
+  color: #00140b;
+
+  background:
+    var(--primary);
+}
+
+.audit-list .done > span {
+  color: var(--primary);
+}
+
+.audit-list .current {
+  border-color:
+    var(--border-cyan);
+}
+
+.audit-list .current > b {
+  color: #00131b;
+
+  background:
+    var(--cyan);
+}
+
+.audit-list .current > span {
+  color: var(--cyan);
+}
+
+/* =========================================================
+   SELLER TABLE
+========================================================= */
+
+.table-wrap {
+  overflow-x: auto;
+
+  padding: 18px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.table-wrap table {
+  width: 100%;
+  min-width: 760px;
+
+  border-collapse: collapse;
+}
+
+.table-wrap th,
+.table-wrap td {
+  padding: 15px;
+
+  border-bottom:
+    1px solid var(--border);
+
+  text-align: left;
+}
+
+.table-wrap th {
+  color: var(--muted);
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.table-wrap td {
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   LISTING PREVIEW CARD
+========================================================= */
+
+.listing-preview {
+  min-width: 0;
+  min-height: 500px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 26px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.credit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.credit-top small {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pill {
+  width: fit-content;
+
+  padding: 7px 11px;
+
+  border:
+    1px solid var(--border-green);
+
+  border-radius: 999px;
+
+  color: var(--primary);
+
+  background:
+    var(--primary-soft);
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.listing-preview h3 {
+  min-height: 58px;
+
+  margin: 20px 0 10px;
+
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.listing-preview > p {
+  min-height: 78px;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+.credit-info {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin: 18px 0;
+}
+
+.credit-info > div {
+  min-width: 0;
+
+  padding: 13px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 14px;
+
+  background:
+    rgba(6, 17, 29, 0.62);
+}
+
+.credit-info span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.credit-info b {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SELLER BARCODE
+========================================================= */
+
+.listing-preview .barcode {
+  width: 100%;
+  height: 72px;
+
+  display: block;
+  flex-shrink: 0;
+
+  margin-top: auto;
+  margin-bottom: 20px;
+
+  border:
+    8px solid #ffffff;
+
+  border-radius: 14px;
+
+  background-color:
+    #ffffff;
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      #07131f 0,
+      #07131f 4px,
+      #ffffff 4px,
+      #ffffff 8px,
+      #07131f 8px,
+      #07131f 11px,
+      #ffffff 11px,
+      #ffffff 16px
+    );
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.14);
+}
+
+.listing-preview .btn {
+  width: 100%;
+
+  margin-top: 0;
+}
+
+/* =========================================================
+   SELLER PROFILE
+========================================================= */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.profile-grid article {
+  min-width: 0;
+
+  padding: 22px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.profile-grid article span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--muted);
+}
+
+.profile-grid article b {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SELLER RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .metrics,
+  .profile-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+
+    height: auto;
+  }
+
+  .side-nav {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .logout {
+    margin-top: 20px;
+  }
+
+  .dash {
+    padding: 20px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .dash {
+    padding: 15px;
+  }
+
+  .dash-head,
+  .welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .metrics,
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .side-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-list > div {
+    grid-template-columns: 1fr;
+  }
+
+  .audit-list article {
+    grid-template-columns:
+      auto minmax(0, 1fr);
+  }
+
+  .audit-list article > span {
+    grid-column: 2;
+  }
+
+  .credit-info {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-preview {
+    min-height: auto;
+  }
+
+  .listing-preview h3,
+  .listing-preview > p {
+    min-height: auto;
+  }
+}
+/* SELLER PROJECT TRACKER */
+
+#projectProcessCard {
+  margin-top: 20px;
+}
+
+#projectProcessCard .audit-list {
+  display: grid;
+  gap: 12px;
+}
+
+#projectProcessCard article {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  align-items: center;
+  gap: 16px;
+
+  padding: 18px;
+
+  border: 1px solid var(--border);
+  border-radius: 0;
+
+  background: var(--surface);
+}
+
+#projectProcessCard article b {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--surface-light);
+  color: var(--primary);
+
+  border: 1px solid var(--border);
+  border-radius: 0;
+}
+
+#projectProcessCard article h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+#projectProcessCard article p {
+  margin-top: 5px;
+
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+#projectProcessCard article span {
+  color: var(--warning);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+#projectProcessCard article.done {
+  border-color: var(--border-green);
+}
+
+#projectProcessCard article.done b {
+  color: #00140b;
+  background: var(--primary);
+}
+
+#projectProcessCard article.done span {
+  color: var(--primary);
+}
+
+#projectProcessCard article.current {
+  border-color: var(--border-cyan);
+}
+
+#projectProcessCard article.current b {
+  color: #00131b;
+  background: var(--cyan);
+}
+
+#projectProcessCard article.current span {
+  color: var(--cyan);
+}
+
+@media (max-width: 700px) {
+  #projectProcessCard article {
+    grid-template-columns: 40px 1fr;
+  }
+
+  #projectProcessCard article span {
+    grid-column: 2;
+  }
+}
+/* SELLER DASHBOARD SCREEN FIT FIX */
+
+.app {
+  grid-template-columns: 240px minmax(0, 1fr);
+}
+
+.sidebar {
+  width: 240px;
+  padding: 20px 16px;
+}
+
+.dash {
+  width: 100%;
+  min-width: 0;
+  padding: 22px;
+  overflow-x: hidden;
+}
+
+.metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metrics article {
+  min-width: 0;
+}
+
+.table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.welcome,
+.panel {
+  max-width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* =========================================================
+   SELLER DASHBOARD COMPACT LAYOUT FIX
+========================================================= */
+
+html {
+  font-size: 14px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 210px minmax(0, 1fr);
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 210px;
+  padding: 18px 14px;
+}
+
+.sidebar .logo {
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.profile {
+  padding: 11px;
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  font-size: 15px;
+}
+
+.side-nav {
+  gap: 5px;
+}
+
+.side {
+  padding: 10px 11px;
+  font-size: 14px;
+}
+
+.logout {
+  min-height: 38px;
+  padding: 9px 12px;
+}
+
+/* Main content */
+
+.dash {
+  width: 100%;
+  min-width: 0;
+  padding: 18px;
+  overflow-x: hidden;
+}
+
+.dash-head {
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.dash-head h1 {
+  font-size: 25px;
+}
+
+/* Welcome card */
+
+.welcome {
+  padding: 19px;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.welcome.small {
+  padding: 18px;
+}
+
+.welcome h2 {
+  margin: 6px 0;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.welcome p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Metric cards */
+
+.metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metrics article {
+  min-width: 0;
+  padding: 16px;
+}
+
+.metrics span {
+  font-size: 13px;
+}
+
+.metrics b {
+  margin-top: 5px;
+  font-size: 28px;
+}
+
+/* Panels */
+
+.two-col {
+  gap: 14px;
+}
+
+.dashboard-spacing {
+  margin-top: 16px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.panel-heading h3 {
+  font-size: 18px;
+}
+
+.progress-item {
+  padding: 10px;
+}
+
+/* Tables */
+
+.table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Laptop responsive */
+
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    width: 190px;
+    padding: 15px 11px;
+  }
+
+  .side {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .dash {
+    padding: 14px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .welcome h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .app {
+    display: block;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .side-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metrics,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   SELLER DASHBOARD COMPACT LAYOUT FIX
+========================================================= */
+
+html {
+  font-size: 14px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 210px minmax(0, 1fr);
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 210px;
+  padding: 18px 14px;
+}
+
+.sidebar .logo {
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.profile {
+  padding: 11px;
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  font-size: 15px;
+}
+
+.side-nav {
+  gap: 5px;
+}
+
+.side {
+  padding: 10px 11px;
+  font-size: 14px;
+}
+
+.logout {
+  min-height: 38px;
+  padding: 9px 12px;
+}
+
+/* Main content */
+
+.dash {
+  width: 100%;
+  min-width: 0;
+  padding: 18px;
+  overflow-x: hidden;
+}
+
+.dash-head {
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.dash-head h1 {
+  font-size: 25px;
+}
+
+/* Welcome card */
+
+.welcome {
+  padding: 19px;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.welcome.small {
+  padding: 18px;
+}
+
+.welcome h2 {
+  margin: 6px 0;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.welcome p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Metric cards */
+
+.metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metrics article {
+  min-width: 0;
+  padding: 16px;
+}
+
+.metrics span {
+  font-size: 13px;
+}
+
+.metrics b {
+  margin-top: 5px;
+  font-size: 28px;
+}
+
+/* Panels */
+
+.two-col {
+  gap: 14px;
+}
+
+.dashboard-spacing {
+  margin-top: 16px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.panel-heading h3 {
+  font-size: 18px;
+}
+
+.progress-item {
+  padding: 10px;
+}
+
+/* Tables */
+
+.table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Laptop responsive */
+
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    width: 190px;
+    padding: 15px 11px;
+  }
+
+  .side {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .dash {
+    padding: 14px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .welcome h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .app {
+    display: block;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .side-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metrics,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CARDS STRAIGHT, BUTTONS SLIGHTLY ROUNDED */
+
+.panel,
+.welcome,
+.metrics article,
+.process-grid article,
+.stats > div,
+.auth-card,
+.role,
+.pipeline-card,
+.step,
+.profile,
+.credit,
+.credit-info > div,
+.table-wrap,
+.listing-preview,
+.upload-section,
+.progress-item,
+.activity-list > div,
+.audit-list article,
+.profile-grid article,
+.modal-box {
+  border-radius: 0 !important;
+}
+
+.btn,
+input,
+select,
+textarea,
+.side,
+.verified,
+.pill,
+.close {
+  border-radius: 6px !important;
+}
