@@ -1,0 +1,331 @@
+{
+  "users": [
+    {
+      "id": "96d30c8e-8a8c-4bb0-bb9a-2f1a0f236fe1",
+      "email": "priya.sharma@sunrisesolar.in",
+      "password_hash": "$2b$10$Kx1z9mQvR7wZ8yN4tL2ohO",
+      "role": "seller",
+      "name": "Priya Sharma",
+      "created_at": "2026-01-05T00:00:00Z"
+    },
+    {
+      "id": "e6f70975-0574-45bc-a671-baba9469e438",
+      "email": "arjun.mehta@greenfields.in",
+      "password_hash": "$2b$10$Aq3d8nPxT5rY2wM9cB1klU",
+      "role": "seller",
+      "name": "Arjun Mehta",
+      "created_at": "2026-01-06T00:00:00Z"
+    },
+    {
+      "id": "177040f9-639d-4362-8b46-dfdad48f44b7",
+      "email": "auditor.rk@carboncred.in",
+      "password_hash": "$2b$10$Zt7f2vHnQ8sD4xJ6mR0poW",
+      "role": "auditor",
+      "name": "Rakesh Kumar",
+      "created_at": "2026-01-07T00:00:00Z"
+    },
+    {
+      "id": "78b08090-38ad-4881-9e66-f931f202ffeb",
+      "email": "auditor.sn@carboncred.in",
+      "password_hash": "$2b$10$Bm9g5wLpS3vF7yK1nT4erX",
+      "role": "auditor",
+      "name": "Sunita Nair",
+      "created_at": "2026-01-07T00:00:00Z"
+    },
+    {
+      "id": "69b2dff9-fc77-421e-b1b6-cda8a756b7e0",
+      "email": "vikram.buyer@ecotrade.in",
+      "password_hash": "$2b$10$Cn2h6xMqU4wG8zL3oS5fvY",
+      "role": "buyer",
+      "name": "Vikram Singh",
+      "created_at": "2026-01-08T00:00:00Z"
+    }
+  ],
+  "ies_data": [
+    {
+      "id": "9d8e83f3-d75c-40a3-a5ee-053c5997e286",
+      "producer_id": "IES-MH-0142",
+      "name": "Solar Rooftop - Pune MSME Cluster",
+      "state": "Maharashtra",
+      "energy_type": "solar",
+      "capacity_kw": 50,
+      "monthly_generation_kwh": 6200,
+      "grid_fossil_fuel_percent": 71,
+      "lat": 18.5204,
+      "lon": 73.8567,
+      "period": "Q1-2026",
+      "created_at": "2026-01-05T00:00:00Z"
+    },
+    {
+      "id": "a7d4a054-b893-4420-bb86-457a296259bb",
+      "producer_id": "IES-GJ-0089",
+      "name": "Biomass Unit - Rajkot Agro Processors",
+      "state": "Gujarat",
+      "energy_type": "biomass",
+      "capacity_kw": 120,
+      "monthly_generation_kwh": 18500,
+      "grid_fossil_fuel_percent": 65,
+      "lat": 22.3039,
+      "lon": 70.8022,
+      "period": "Q1-2026",
+      "created_at": "2026-01-05T00:00:00Z"
+    },
+    {
+      "id": "d9cf7857-d126-4d7c-8199-189b52797706",
+      "producer_id": "IES-RJ-0211",
+      "name": "Solar Farm - Jodhpur Textile Park",
+      "state": "Rajasthan",
+      "energy_type": "solar",
+      "capacity_kw": 200,
+      "monthly_generation_kwh": 31500,
+      "grid_fossil_fuel_percent": 78,
+      "lat": 26.2389,
+      "lon": 73.0243,
+      "period": "Q1-2026",
+      "created_at": "2026-01-06T00:00:00Z"
+    },
+    {
+      "id": "49e6aae6-deb1-4dec-8e11-be204b77a9b8",
+      "producer_id": "IES-TN-0057",
+      "name": "Wind Turbine Cluster - Tirunelveli",
+      "state": "Tamil Nadu",
+      "energy_type": "wind",
+      "capacity_kw": 300,
+      "monthly_generation_kwh": 42800,
+      "grid_fossil_fuel_percent": 58,
+      "lat": 8.7139,
+      "lon": 77.7567,
+      "period": "Q1-2026",
+      "created_at": "2026-01-06T00:00:00Z"
+    },
+    {
+      "id": "9fae42ff-c3de-4718-9761-f8aacffa3921",
+      "producer_id": "IES-KA-0176",
+      "name": "Biogas Plant - Mysuru Dairy Cooperative",
+      "state": "Karnataka",
+      "energy_type": "biogas",
+      "capacity_kw": 75,
+      "monthly_generation_kwh": 9400,
+      "grid_fossil_fuel_percent": 62,
+      "lat": 12.2958,
+      "lon": 76.6394,
+      "period": "Q1-2026",
+      "created_at": "2026-01-07T00:00:00Z"
+    }
+  ],
+  "seller_claims": [
+    {
+      "id": "06003182-7cec-4b5a-b808-93a104d58f7c",
+      "seller_id": "96d30c8e-8a8c-4bb0-bb9a-2f1a0f236fe1",
+      "ies_data_id": "9d8e83f3-d75c-40a3-a5ee-053c5997e286",
+      "claimed_at": "2026-01-07T00:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "da02afbf-8eb7-4c49-b6e3-32292b1bd1ee",
+      "seller_id": "96d30c8e-8a8c-4bb0-bb9a-2f1a0f236fe1",
+      "ies_data_id": "d9cf7857-d126-4d7c-8199-189b52797706",
+      "claimed_at": "2026-01-08T00:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "5390eba7-6b69-4a9e-a976-cea73ae23924",
+      "seller_id": "e6f70975-0574-45bc-a671-baba9469e438",
+      "ies_data_id": "a7d4a054-b893-4420-bb86-457a296259bb",
+      "claimed_at": "2026-01-07T04:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "b06ae5c6-c870-40c4-8275-a86748a6feef",
+      "seller_id": "e6f70975-0574-45bc-a671-baba9469e438",
+      "ies_data_id": "49e6aae6-deb1-4dec-8e11-be204b77a9b8",
+      "claimed_at": "2026-01-09T00:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "e6719851-f549-43db-9b31-3d59cb7c5110",
+      "seller_id": "96d30c8e-8a8c-4bb0-bb9a-2f1a0f236fe1",
+      "ies_data_id": "9fae42ff-c3de-4718-9761-f8aacffa3921",
+      "claimed_at": "2026-01-10T00:00:00Z",
+      "status": "withdrawn"
+    }
+  ],
+  "credit_calculations": [
+    {
+      "id": "ee63deb6-a46e-4c2d-bb28-d2368e8af673",
+      "claim_id": "06003182-7cec-4b5a-b808-93a104d58f7c",
+      "ies_data_id": "9d8e83f3-d75c-40a3-a5ee-053c5997e286",
+      "calculated_at": "2026-01-08T00:00:00Z",
+      "monthly_generation_kwh": 6200,
+      "emission_factor": 0.82,
+      "gross_co2_avoided": 5084.0,
+      "anomaly_detected": false,
+      "anomaly_reason": null,
+      "ai_confidence": 0.97,
+      "net_credits": 5.08,
+      "price_per_credit_inr": 1200,
+      "status": "approved"
+    },
+    {
+      "id": "809e59c0-2b20-4969-ae57-bbfab7cfbef9",
+      "claim_id": "da02afbf-8eb7-4c49-b6e3-32292b1bd1ee",
+      "ies_data_id": "d9cf7857-d126-4d7c-8199-189b52797706",
+      "calculated_at": "2026-01-09T00:00:00Z",
+      "monthly_generation_kwh": 31500,
+      "emission_factor": 0.85,
+      "gross_co2_avoided": 26775.0,
+      "anomaly_detected": false,
+      "anomaly_reason": null,
+      "ai_confidence": 0.95,
+      "net_credits": 26.78,
+      "price_per_credit_inr": 1200,
+      "status": "approved"
+    },
+    {
+      "id": "c8f55cf0-267b-42e3-ab8c-344165ff3abd",
+      "claim_id": "5390eba7-6b69-4a9e-a976-cea73ae23924",
+      "ies_data_id": "a7d4a054-b893-4420-bb86-457a296259bb",
+      "calculated_at": "2026-01-08T00:00:00Z",
+      "monthly_generation_kwh": 18500,
+      "emission_factor": 0.79,
+      "gross_co2_avoided": 14615.0,
+      "anomaly_detected": false,
+      "anomaly_reason": null,
+      "ai_confidence": 0.93,
+      "net_credits": 14.62,
+      "price_per_credit_inr": 1200,
+      "status": "pending_audit"
+    },
+    {
+      "id": "6535a0d9-7c28-42ea-a31b-bfd58176d3c4",
+      "claim_id": "b06ae5c6-c870-40c4-8275-a86748a6feef",
+      "ies_data_id": "49e6aae6-deb1-4dec-8e11-be204b77a9b8",
+      "calculated_at": "2026-01-10T00:00:00Z",
+      "monthly_generation_kwh": 42800,
+      "emission_factor": 0.71,
+      "gross_co2_avoided": 30388.0,
+      "anomaly_detected": true,
+      "anomaly_reason": "Generation spike 34% above prior 3-month average",
+      "ai_confidence": 0.61,
+      "net_credits": 30.39,
+      "price_per_credit_inr": 1200,
+      "status": "pending_audit"
+    },
+    {
+      "id": "c3537769-d8ec-42de-bbf3-fe4bbb2cd654",
+      "claim_id": "e6719851-f549-43db-9b31-3d59cb7c5110",
+      "ies_data_id": "9fae42ff-c3de-4718-9761-f8aacffa3921",
+      "calculated_at": "2026-01-11T00:00:00Z",
+      "monthly_generation_kwh": 9400,
+      "emission_factor": 0.76,
+      "gross_co2_avoided": 7144.0,
+      "anomaly_detected": true,
+      "anomaly_reason": "Producer meter reading inconsistent with declared capacity",
+      "ai_confidence": 0.44,
+      "net_credits": 7.14,
+      "price_per_credit_inr": 1200,
+      "status": "rejected"
+    }
+  ],
+  "audits": [
+    {
+      "id": "d186b877-2e54-4a70-b184-811d204489fb",
+      "calculation_id": "ee63deb6-a46e-4c2d-bb28-d2368e8af673",
+      "auditor_id": "177040f9-639d-4362-8b46-dfdad48f44b7",
+      "submitted_at": "2026-01-09T00:00:00Z",
+      "audit_status": "approved",
+      "auditor_notes": "Generation figures cross-checked against DISCOM records. Consistent.",
+      "reviewed_at": "2026-01-09T06:00:00Z"
+    },
+    {
+      "id": "850c0d46-24c9-4fd5-8d5c-c45fe8f11ff4",
+      "calculation_id": "809e59c0-2b20-4969-ae57-bbfab7cfbef9",
+      "auditor_id": "78b08090-38ad-4881-9e66-f931f202ffeb",
+      "submitted_at": "2026-01-10T00:00:00Z",
+      "audit_status": "approved",
+      "auditor_notes": "Site inspection photos verified. No discrepancies found.",
+      "reviewed_at": "2026-01-10T05:00:00Z"
+    },
+    {
+      "id": "3c77c808-ce8b-4372-9ebd-fb8ed84f0128",
+      "calculation_id": "6535a0d9-7c28-42ea-a31b-bfd58176d3c4",
+      "auditor_id": "177040f9-639d-4362-8b46-dfdad48f44b7",
+      "submitted_at": "2026-01-11T00:00:00Z",
+      "audit_status": "under_review",
+      "auditor_notes": "Requested turbine SCADA logs to explain generation spike.",
+      "reviewed_at": null
+    },
+    {
+      "id": "9e5dd024-6dc8-42bf-a591-a36f75613fca",
+      "calculation_id": "c3537769-d8ec-42de-bbf3-fe4bbb2cd654",
+      "auditor_id": "78b08090-38ad-4881-9e66-f931f202ffeb",
+      "submitted_at": "2026-01-12T00:00:00Z",
+      "audit_status": "rejected",
+      "auditor_notes": "Meter calibration certificate expired; claim not supportable.",
+      "reviewed_at": "2026-01-12T08:00:00Z"
+    }
+  ],
+  "credit_listings": [
+    {
+      "id": "cb09faf7-c242-4144-800e-60ddb21c330c",
+      "calculation_id": "ee63deb6-a46e-4c2d-bb28-d2368e8af673",
+      "seller_id": "96d30c8e-8a8c-4bb0-bb9a-2f1a0f236fe1",
+      "credits_available": 5.08,
+      "price_per_credit_inr": 1200,
+      "batch_id": "BATCH-2026-Q1-001",
+      "listed_at": "2026-01-10T00:00:00Z",
+      "status": "partially_sold"
+    },
+    {
+      "id": "d6379022-2b00-496d-8b1c-9a91d27de274",
+      "calculation_id": "809e59c0-2b20-4969-ae57-bbfab7cfbef9",
+      "seller_id": "96d30c8e-8a8c-4bb0-bb9a-2f1a0f236fe1",
+      "credits_available": 26.78,
+      "price_per_credit_inr": 1250,
+      "batch_id": "BATCH-2026-Q1-002",
+      "listed_at": "2026-01-11T00:00:00Z",
+      "status": "available"
+    },
+    {
+      "id": "38b06519-823e-48de-8c2e-b3bfaf5eb619",
+      "calculation_id": "c8f55cf0-267b-42e3-ab8c-344165ff3abd",
+      "seller_id": "e6f70975-0574-45bc-a671-baba9469e438",
+      "credits_available": 14.62,
+      "price_per_credit_inr": 1200,
+      "batch_id": "BATCH-2026-Q1-003",
+      "listed_at": "2026-01-11T00:00:00Z",
+      "status": "available"
+    }
+  ],
+  "purchases": [
+    {
+      "id": "ea4cd6d8-2bb1-41a1-8870-96c3e2f20fbc",
+      "listing_id": "cb09faf7-c242-4144-800e-60ddb21c330c",
+      "buyer_id": "69b2dff9-fc77-421e-b1b6-cda8a756b7e0",
+      "credits_bought": 3.0,
+      "total_price_inr": 3600,
+      "purchased_at": "2026-01-13T00:00:00Z",
+      "retirement_status": "retired"
+    },
+    {
+      "id": "964739b1-dd1f-4833-b7e3-603788d65896",
+      "listing_id": "d6379022-2b00-496d-8b1c-9a91d27de274",
+      "buyer_id": "69b2dff9-fc77-421e-b1b6-cda8a756b7e0",
+      "credits_bought": 10.0,
+      "total_price_inr": 12500,
+      "purchased_at": "2026-01-14T00:00:00Z",
+      "retirement_status": "active"
+    }
+  ],
+  "retirements": [
+    {
+      "id": "6b5ca7f4-5dba-4512-92b9-e4b63a0e5cbd",
+      "purchase_id": "ea4cd6d8-2bb1-41a1-8870-96c3e2f20fbc",
+      "buyer_id": "69b2dff9-fc77-421e-b1b6-cda8a756b7e0",
+      "certificate_id": "CERT-RE-2026-000451",
+      "credits_retired": 3.0,
+      "retired_at": "2026-01-15T00:00:00Z",
+      "reason": "Corporate ESG offset - FY2026 Q1 reporting"
+    }
+  ]
+}
