@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="KarbonCred buyer dashboard for purchasing, managing, and retiring verified carbon credits."
+  />
+
+  <title>KarbonCred | Buyer Dashboard</title>
+
+  <link
+    rel="stylesheet"
+    href="css/main.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/buyer.css"
+  />
+</head>
+
+<body>
+  <div class="app">
+    <!-- ===================================================
+         BUYER SIDEBAR
+    ==================================================== -->
+
+    <aside class="sidebar">
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="KarbonCred home"
+      >
+        Karbon<span>Cred</span>
+      </a>
+
+      <div class="profile">
+        <div
+          class="avatar"
+          data-user-initial
+          data-buyer-initial
+        >
+          KB
+        </div>
+
+        <div>
+          <b data-user-name>
+            Demo Buyer
+          </b>
+
+          <span>
+            Verified Buyer
+          </span>
+        </div>
+      </div>
+
+      <nav
+        class="side-nav"
+        aria-label="Buyer dashboard navigation"
+      >
+        <button
+          type="button"
+          class="side active"
+          data-section="dashboardSection"
+          data-title="Buyer Dashboard"
+          data-subtitle="Overview"
+        >
+          Dashboard
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="marketplaceSection"
+          data-title="Carbon Marketplace"
+          data-subtitle="Browse verified credits"
+        >
+          Marketplace
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="portfolioSection"
+          data-title="My Portfolio"
+          data-subtitle="Owned carbon credits"
+        >
+          Portfolio
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="transactionSection"
+          data-title="Transactions"
+          data-subtitle="Purchase and retirement history"
+        >
+          Transactions
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="retirementSection"
+          data-title="Credit Retirement"
+          data-subtitle="Permanent climate-impact records"
+        >
+          Retirement
+        </button>
+
+        <button
+          type="button"
+          class="side"
+          data-section="profileSection"
+          data-title="Buyer Profile"
+          data-subtitle="Account and verification details"
+        >
+          Profile
+        </button>
+      </nav>
+
+      <button
+        type="button"
+        class="btn ghost logout"
+        data-logout
+      >
+        Logout
+      </button>
+    </aside>
+
+    <!-- ===================================================
+         BUYER MAIN CONTENT
+    ==================================================== -->
+
+    <main class="dash">
+      <header class="dash-head">
+        <div>
+          <span id="dashboardSubtitle">
+            Overview
+          </span>
+
+          <h1 id="dashboardTitle">
+            Buyer Dashboard
+          </h1>
+        </div>
+
+        <div class="verified">
+          Verified Buyer
+        </div>
+      </header>
+
+      <!-- =================================================
+           DASHBOARD OVERVIEW SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section active"
+        id="dashboardSection"
+      >
+        <div class="welcome">
+          <div>
+            <span>
+              Welcome to KarbonCred
+            </span>
+
+            <h2>
+              Track your carbon-credit
+              portfolio and climate impact.
+            </h2>
+
+            <p>
+              Browse verified projects, purchase carbon
+              credits, manage ownership certificates, and
+              permanently retire credits from one dashboard.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="btn primary large"
+            data-open-marketplace
+            onclick="openBuyerSection('marketplaceSection')"
+          >
+            Browse Marketplace
+          </button>
+        </div>
+
+        <div class="metrics">
+          <article>
+            <span>
+              Owned Credits
+            </span>
+
+            <b id="dashboardOwnedCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Retired Credits
+            </span>
+
+            <b id="dashboardRetiredCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Total Investment
+            </span>
+
+            <b id="dashboardTotalSpent">
+              ₹0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Purchases
+            </span>
+
+            <b id="dashboardTransactionCount">
+              0
+            </b>
+          </article>
+        </div>
+
+        <div class="two-col dashboard-spacing">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Portfolio Overview
+              </span>
+
+              <h3>
+                Climate action progress
+              </h3>
+            </div>
+
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Owned Credits
+                  </span>
+
+                  <b id="ownedCredits">
+                    0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 70%;"></span>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Retired Credits
+                  </span>
+
+                  <b id="retiredCredits">
+                    0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 35%;"></span>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Total Investment
+                  </span>
+
+                  <b id="totalInvestment">
+                    ₹0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 55%;"></span>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    Purchase Count
+                  </span>
+
+                  <b id="purchaseCount">
+                    0
+                  </b>
+                </div>
+
+                <div class="progress-track">
+                  <span style="width: 45%;"></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Recent Activity
+              </span>
+
+              <h3>
+                Latest buyer updates
+              </h3>
+            </div>
+
+            <div
+              class="activity-list"
+              id="transactionList"
+            >
+              <div>
+                <span>
+                  Welcome
+                </span>
+
+                <p>
+                  Your purchases and retirements will
+                  appear here.
+                </p>
+
+                <b>
+                  Now
+                </b>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="two-col dashboard-spacing">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Marketplace Access
+              </span>
+
+              <h3>
+                Buy verified carbon credits
+              </h3>
+            </div>
+
+            <p>
+              Compare projects using category, seller,
+              location, vintage, verification status,
+              availability, and price.
+            </p>
+
+            <button
+              type="button"
+              class="btn primary"
+              onclick="openBuyerSection('marketplaceSection')"
+            >
+              Open Marketplace
+            </button>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Permanent Impact
+              </span>
+
+              <h3>
+                Retire owned credits
+              </h3>
+            </div>
+
+            <p>
+              Retired carbon credits are permanently
+              removed from circulation and receive a
+              dedicated retirement certificate.
+            </p>
+
+            <button
+              type="button"
+              class="btn ghost"
+              onclick="openBuyerSection('portfolioSection')"
+            >
+              View Portfolio
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <!-- =================================================
+           MARKETPLACE SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="marketplaceSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              Verified Marketplace
+            </span>
+
+            <h2>
+              Browse available carbon credits
+            </h2>
+
+            <p>
+              Search and compare verified credits
+              across renewable-energy and emission-
+              reduction projects.
+            </p>
+          </div>
+
+          <div class="verified">
+            CCTS and Audit Records
+          </div>
+        </div>
+
+        <div class="metrics">
+          <article>
+            <span>
+              Listings
+            </span>
+
+            <b id="marketListingCount">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Available Credits
+            </span>
+
+            <b id="marketTotalCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Average Price
+            </span>
+
+            <b id="marketAveragePrice">
+              ₹0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              CCTS Approved
+            </span>
+
+            <b id="marketVerifiedCount">
+              0
+            </b>
+          </article>
+        </div>
+
+        <div class="toolbar dashboard-spacing">
+          <input
+            type="search"
+            id="marketSearch"
+            placeholder="Search project, seller, location, or credit ID"
+            aria-label="Search marketplace"
+          />
+
+          <select
+            id="marketFilter"
+            aria-label="Filter marketplace by project category"
+          >
+            <option value="all">
+              All Project Types
+            </option>
+
+            <option value="solar">
+              Solar Energy
+            </option>
+
+            <option value="wind">
+              Wind Energy
+            </option>
+
+            <option value="biomass">
+              Biomass
+            </option>
+
+            <option value="hydro">
+              Hydro Energy
+            </option>
+
+            <option value="efficiency">
+              Energy Efficiency
+            </option>
+          </select>
+        </div>
+
+        <div
+          class="credit-grid"
+          id="creditGrid"
+        >
+          <!-- Marketplace cards are generated by buyer.js -->
+        </div>
+
+        <div
+          class="panel hidden dashboard-spacing"
+          id="marketplaceEmpty"
+        >
+          <div class="panel-heading">
+            <span>
+              No Results
+            </span>
+
+            <h3>
+              No carbon credits found
+            </h3>
+          </div>
+
+          <p>
+            Change your search text or project category
+            and try again.
+          </p>
+        </div>
+      </section>
+
+      <!-- =================================================
+           PORTFOLIO SECTION START
+           Continue from here in Part B
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="portfolioSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              Carbon Portfolio
+            </span>
+
+            <h2>
+              Manage your owned carbon credits
+            </h2>
+
+            <p>
+              View available quantities, purchase values,
+              project details, certificates, and retirement
+              actions.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="btn primary"
+            onclick="openBuyerSection('marketplaceSection')"
+          >
+            Buy More Credits
+          </button>
+        </div>
+
+        <div class="metrics">
+          <article>
+            <span>
+              Available Credits
+            </span>
+
+            <b id="portfolioTotalCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Retired Credits
+            </span>
+
+            <b id="portfolioRetiredCredits">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Projects
+            </span>
+
+            <b id="portfolioProjectCount">
+              0
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Investment
+            </span>
+
+            <b id="portfolioInvestment">
+              ₹0
+            </b>
+          </article>
+        </div>
+
+        <div
+          class="credit-grid dashboard-spacing"
+          id="portfolioGrid"
+        >
+          <!-- Portfolio cards are generated by buyer.js -->
+        </div>
+                <div class="table-wrap dashboard-spacing">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Credit ID
+                </th>
+
+                <th>
+                  Project
+                </th>
+
+                <th>
+                  Available
+                </th>
+
+                <th>
+                  Retired
+                </th>
+
+                <th>
+                  Average Price
+                </th>
+
+                <th>
+                  Vintage
+                </th>
+
+                <th>
+                  Status
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="portfolioTableBody">
+              <tr>
+                <td colspan="7">
+                  No portfolio records available.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =================================================
+           TRANSACTIONS SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="transactionSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              Transaction Records
+            </span>
+
+            <h2>
+              Review your carbon-credit activity
+            </h2>
+
+            <p>
+              Purchases, retirement records, payment
+              details, quantities, and transaction status
+              appear here.
+            </p>
+          </div>
+
+          <div class="verified">
+            Traceable History
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Transaction ID
+                </th>
+
+                <th>
+                  Date
+                </th>
+
+                <th>
+                  Type
+                </th>
+
+                <th>
+                  Project
+                </th>
+
+                <th>
+                  Quantity
+                </th>
+
+                <th>
+                  Amount
+                </th>
+
+                <th>
+                  Payment
+                </th>
+
+                <th>
+                  Status
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="transactionTableBody">
+              <tr>
+                <td colspan="8">
+                  No transactions available.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =================================================
+           RETIREMENT SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="retirementSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              Permanent Retirement
+            </span>
+
+            <h2>
+              Record your verified climate impact
+            </h2>
+
+            <p>
+              Retired credits are permanently removed
+              from circulation and cannot be sold or
+              transferred again.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="btn primary"
+            onclick="openBuyerSection('portfolioSection')"
+          >
+            Select Credits
+          </button>
+        </div>
+
+        <div class="two-col">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Retirement Process
+              </span>
+
+              <h3>
+                How retirement works
+              </h3>
+            </div>
+
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    1. Select owned credits
+                  </span>
+
+                  <b>
+                    Portfolio
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Choose an active carbon-credit asset
+                  from your portfolio.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    2. Enter retirement quantity
+                  </span>
+
+                  <b>
+                    Quantity
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Enter how many credits you want to
+                  permanently retire.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    3. Add retirement purpose
+                  </span>
+
+                  <b>
+                    Reason
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  Record the organization, campaign,
+                  event, or climate claim linked to the
+                  retirement.
+                </p>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-text">
+                  <span>
+                    4. Generate certificate
+                  </span>
+
+                  <b>
+                    Certificate
+                  </b>
+                </div>
+
+                <p
+                  style="
+                    color: var(--muted);
+                    line-height: 1.6;
+                  "
+                >
+                  A permanent retirement certificate is
+                  generated with a unique verification
+                  reference.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Impact Summary
+              </span>
+
+              <h3>
+                Your retired-credit records
+              </h3>
+            </div>
+
+            <p>
+              Each retired carbon credit represents one
+              tonne of verified carbon dioxide equivalent
+              removed or avoided according to the project
+              methodology.
+            </p>
+
+            <div class="credit-info">
+              <div>
+                <span>
+                  Retirement Status
+                </span>
+
+                <b>
+                  Permanent
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Resale Allowed
+                </span>
+
+                <b>
+                  No
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Verification
+                </span>
+
+                <b>
+                  Certificate ID
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Climate Impact
+                </span>
+
+                <b>
+                  1 Credit = 1 tCO₂e
+                </b>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div
+          class="credit-grid dashboard-spacing"
+          id="retirementGrid"
+        >
+          <!-- Retirement cards are generated by buyer.js -->
+        </div>
+
+        <div class="table-wrap dashboard-spacing">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Retirement ID
+                </th>
+
+                <th>
+                  Project
+                </th>
+
+                <th>
+                  Quantity
+                </th>
+
+                <th>
+                  Purpose
+                </th>
+
+                <th>
+                  Date
+                </th>
+
+                <th>
+                  Certificate ID
+                </th>
+
+                <th>
+                  Status
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="retirementTableBody">
+              <tr>
+                <td colspan="7">
+                  No retired credits available.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =================================================
+           PROFILE SECTION
+      ================================================== -->
+
+      <section
+        class="dash-section"
+        id="profileSection"
+      >
+        <div class="welcome small">
+          <div>
+            <span>
+              Buyer Account
+            </span>
+
+            <h2>
+              Profile and verification information
+            </h2>
+
+            <p>
+              Review your KarbonCred account role,
+              verification status, contact details, and
+              buyer reference.
+            </p>
+          </div>
+
+          <div class="verified">
+            Verified Account
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <article>
+            <span>
+              Buyer Name
+            </span>
+
+            <b id="profileBuyerName">
+              Demo Buyer
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Email Address
+            </span>
+
+            <b id="profileBuyerEmail">
+              buyer@karboncred.in
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Account Role
+            </span>
+
+            <b id="profileBuyerRole">
+              Buyer
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Buyer ID
+            </span>
+
+            <b id="profileBuyerId">
+              DEMO-BUYER
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Verification Status
+            </span>
+
+            <b id="profileVerificationStatus">
+              Verified
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Account Type
+            </span>
+
+            <b>
+              Carbon Credit Buyer
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Marketplace Access
+            </span>
+
+            <b>
+              Active
+            </b>
+          </article>
+
+          <article>
+            <span>
+              Certificate Access
+            </span>
+
+            <b>
+              Enabled
+            </b>
+          </article>
+        </div>
+
+        <div class="two-col dashboard-spacing">
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Account Security
+              </span>
+
+              <h3>
+                Login and access information
+              </h3>
+            </div>
+
+            <div class="credit-info">
+              <div>
+                <span>
+                  Login Method
+                </span>
+
+                <b>
+                  Email and Password
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Role Access
+                </span>
+
+                <b>
+                  Buyer Dashboard
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Data Storage
+                </span>
+
+                <b>
+                  Browser Demo Storage
+                </b>
+              </div>
+
+              <div>
+                <span>
+                  Backend Status
+                </span>
+
+                <b>
+                  Supabase Ready
+                </b>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <span>
+                Account Actions
+              </span>
+
+              <h3>
+                Manage your session
+              </h3>
+            </div>
+
+            <p>
+              Logging out removes the active account
+              session from this browser. Your demo
+              portfolio and transaction records remain
+              stored locally.
+            </p>
+
+            <button
+              type="button"
+              class="btn ghost logout"
+              data-logout
+            >
+              Logout from Buyer Dashboard
+            </button>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- =====================================================
+       BUY CREDIT MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="buyModal"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-box"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalCreditName"
+    >
+      <button
+        type="button"
+        class="close"
+        data-close-modal
+        aria-label="Close purchase modal"
+      >
+        ×
+      </button>
+
+      <h2 id="modalCreditName">
+        Carbon Credit Purchase
+      </h2>
+
+      <p class="modal-description">
+        Review the verified listing and enter the
+        number of carbon credits you want to purchase.
+      </p>
+
+      <div class="credit-info">
+        <div>
+          <span>
+            Credit ID
+          </span>
+
+          <b id="modalCreditId">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Seller
+          </span>
+
+          <b id="modalSellerName">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Project Type
+          </span>
+
+          <b id="modalProjectType">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Location
+          </span>
+
+          <b id="modalLocation">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Available
+          </span>
+
+          <b id="modalAvailableCredits">
+            0 Credits
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Unit Price
+          </span>
+
+          <b id="modalCreditPrice">
+            ₹0
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Certification
+          </span>
+
+          <b id="modalCertification">
+            -
+          </b>
+        </div>
+      </div>
+
+      <form id="purchaseForm">
+        <label for="purchaseQuantity">
+          Purchase quantity
+
+          <input
+            type="number"
+            id="purchaseQuantity"
+            name="purchaseQuantity"
+            min="1"
+            value="1"
+            required
+          />
+        </label>
+
+        <label for="paymentMethod">
+          Payment method
+
+          <select
+            id="paymentMethod"
+            name="paymentMethod"
+            required
+          >
+            <option value="">
+              Select payment method
+            </option>
+
+            <option value="upi">
+              UPI
+            </option>
+
+            <option value="card">
+              Debit / Credit Card
+            </option>
+
+            <option value="netbanking">
+              Net Banking
+            </option>
+
+            <option value="wallet">
+              Digital Wallet
+            </option>
+
+            <option value="bank">
+              Bank Transfer
+            </option>
+          </select>
+        </label>
+
+        <div class="purchase-summary">
+          <div>
+            <span>
+              Quantity
+            </span>
+
+            <b id="summaryQuantity">
+              0
+            </b>
+          </div>
+
+          <div>
+            <span>
+              Unit Price
+            </span>
+
+            <b id="summaryUnitPrice">
+              ₹0
+            </b>
+          </div>
+
+          <div>
+            <span>
+              Subtotal
+            </span>
+
+            <b id="summarySubtotal">
+              ₹0
+            </b>
+          </div>
+
+          <div>
+            <span>
+              Platform Fee
+            </span>
+
+            <b id="summaryPlatformFee">
+              ₹0
+            </b>
+          </div>
+
+          <div>
+            <span>
+              GST on Fee
+            </span>
+
+            <b id="summaryTax">
+              ₹0
+            </b>
+          </div>
+
+          <div>
+            <span>
+              Total
+            </span>
+
+            <b id="summaryTotal">
+              ₹0
+            </b>
+          </div>
+        </div>
+
+        <p
+          class="msg"
+          id="purchaseMessage"
+          aria-live="polite"
+        ></p>
+
+        <button
+          type="submit"
+          class="btn primary full"
+          id="confirmPurchaseButton"
+        >
+          Confirm Purchase
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       RETIREMENT MODAL START
+       Continue in Part C
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="retirementModal"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-box"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="retirementProjectName"
+    >
+      <button
+        type="button"
+        class="close"
+        data-close-retirement
+        aria-label="Close retirement modal"
+      >
+        ×
+      </button>
+
+      <h2 id="retirementProjectName">
+        Retire Carbon Credits
+      </h2>
+
+      <p class="modal-description">
+        Retirement is permanent. Retired carbon credits
+        cannot be resold or transferred.
+      </p>
+
+      <div class="credit-info">
+        <div>
+          <span>
+            Credit ID
+          </span>
+
+          <b id="retirementCreditId">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Available
+          </span>
+
+          <b id="retirementAvailableCredits">
+            0 Credits
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Ownership Certificate
+          </span>
+
+          <b id="retirementCertificateId">
+            -
+          </b>
+        </div>
+      </div>
+
+      <form id="retirementForm">
+        <label for="retirementQuantity">
+          Retirement quantity
+
+          <input
+            type="number"
+            id="retirementQuantity"
+            name="retirementQuantity"
+            min="1"
+            value="1"
+            required
+          />
+        </label>
+
+        <label for="retirementReason">
+          Retirement purpose
+
+          <textarea
+            id="retirementReason"
+            name="retirementReason"
+            placeholder="Example: Offset emissions from our 2026 sustainability event"
+            required
+          ></textarea>
+        </label>
+
+        <div class="purchase-summary">
+          <div>
+            <span>
+              Credits to Retire
+            </span>
+
+            <b id="retirementSummaryQuantity">
+              0
+            </b>
+          </div>
+
+          <div>
+            <span>
+              Climate Impact
+            </span>
+
+            <b id="retirementSummaryImpact">
+              0 tCO₂e
+            </b>
+          </div>
+        </div>
+
+        <p
+          class="msg"
+          id="retirementMessage"
+          aria-live="polite"
+        ></p>
+
+        <button
+          type="submit"
+          class="btn primary full"
+          id="confirmRetirementButton"
+        >
+          Retire Credits
+        </button>
+      </form>
+    </div>
+  </div>
+    <!-- =====================================================
+       CERTIFICATE MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="certificateModal"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-box"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="certificateTitle"
+    >
+      <button
+        type="button"
+        class="close"
+        data-close-certificate
+        aria-label="Close certificate modal"
+      >
+        ×
+      </button>
+
+      <h2 id="certificateTitle">
+        Carbon Credit Certificate
+      </h2>
+
+      <p class="modal-description">
+        This digital certificate records verified
+        carbon-credit ownership or retirement details.
+      </p>
+
+      <div class="certificate-preview">
+        <div>
+          <div
+            class="fake-qr"
+            aria-label="Certificate verification QR"
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+          <p
+            id="certificateQrText"
+            style="
+              margin-top: 10px;
+              max-width: 150px;
+              color: var(--muted);
+              font-size: 11px;
+              text-align: center;
+              overflow-wrap: anywhere;
+            "
+          >
+            CERTIFICATE-ID
+          </p>
+        </div>
+
+        <div class="certificate-details">
+          <p>
+            Certificate Number
+          </p>
+
+          <b id="certificateNumber">
+            -
+          </b>
+
+          <p>
+            Project
+          </p>
+
+          <b id="certificateProject">
+            -
+          </b>
+
+          <p>
+            Owner
+          </p>
+
+          <b id="certificateOwner">
+            -
+          </b>
+        </div>
+      </div>
+
+      <div
+        class="credit-info"
+        style="margin-top: 22px;"
+      >
+        <div>
+          <span>
+            Credit ID
+          </span>
+
+          <b id="certificateCreditId">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Quantity
+          </span>
+
+          <b id="certificateQuantity">
+            0 Credits
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Climate Impact
+          </span>
+
+          <b id="certificateImpact">
+            0 tCO₂e
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Status
+          </span>
+
+          <b id="certificateStatus">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Date
+          </span>
+
+          <b id="certificateDate">
+            -
+          </b>
+        </div>
+
+        <div>
+          <span>
+            Verification
+          </span>
+
+          <b id="certificateVerification">
+            -
+          </b>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <span>
+            Certificate Purpose
+          </span>
+
+          <h3 id="certificatePurpose">
+            Verified carbon-credit ownership
+          </h3>
+        </div>
+      </div>
+
+      <div
+        class="barcode"
+        id="certificateBarcode"
+        aria-label="Certificate verification barcode"
+        style="
+          width: 100%;
+          height: 72px;
+          margin-top: 20px;
+          border: 8px solid #ffffff;
+          border-radius: 14px;
+          background-color: #ffffff;
+          background-image:
+            repeating-linear-gradient(
+              90deg,
+              #07131f 0,
+              #07131f 4px,
+              #ffffff 4px,
+              #ffffff 8px,
+              #07131f 8px,
+              #07131f 11px,
+              #ffffff 11px,
+              #ffffff 16px
+            );
+        "
+      ></div>
+
+      <button
+        type="button"
+        class="btn primary full"
+        style="margin-top: 18px;"
+        data-close-certificate
+      >
+        Close Certificate
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="js/main.js"></script>
+  <script src="js/buyer.js"></script>
+</body>
+</html>

@@ -1,0 +1,1072 @@
+/* =========================================================
+   KARBONCRED BUYER DASHBOARD
+   File: css/buyer.css
+   Used only by buyer.html
+========================================================= */
+
+/* =========================================================
+   BUYER APP LAYOUT
+========================================================= */
+
+.app {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns:
+    280px minmax(0, 1fr);
+}
+
+/* =========================================================
+   BUYER SIDEBAR
+========================================================= */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #07131f 0%,
+      #0b1b2b 100%
+    );
+
+  border-right:
+    1px solid var(--border);
+}
+
+.sidebar .logo {
+  margin-bottom: 24px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px;
+  margin-bottom: 24px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 18px;
+
+  background:
+    rgba(16, 35, 55, 0.82);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  color: #00140b;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--cyan)
+    );
+
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.profile b,
+.profile span {
+  display: block;
+}
+
+.profile span {
+  margin-top: 3px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.side-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.side {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border-radius: 14px;
+
+  color: var(--muted);
+  background: transparent;
+
+  font-weight: 850;
+  text-align: left;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.side:hover {
+  color: var(--primary);
+
+  background:
+    rgba(0, 210, 106, 0.08);
+
+  transform: translateX(3px);
+}
+
+.side.active {
+  color: var(--primary);
+
+  background:
+    rgba(0, 210, 106, 0.12);
+
+  border:
+    1px solid rgba(0, 210, 106, 0.2);
+}
+
+.logout {
+  margin-top: auto;
+}
+
+/* =========================================================
+   BUYER MAIN DASHBOARD
+========================================================= */
+
+.dash {
+  min-width: 0;
+
+  padding: 28px;
+}
+
+.dash-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-bottom: 22px;
+  margin-bottom: 26px;
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+.dash-head span {
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.dash-head h1 {
+  margin-top: 4px;
+
+  font-size: 29px;
+}
+
+.verified {
+  padding: 9px 13px;
+
+  border:
+    1px solid var(--border-green);
+
+  border-radius: 999px;
+
+  color: var(--primary);
+
+  background:
+    var(--primary-soft);
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* =========================================================
+   BUYER DASHBOARD SECTIONS
+========================================================= */
+
+.dash-section {
+  display: none;
+}
+
+.dash-section.active {
+  display: block;
+}
+
+/* =========================================================
+   BUYER WELCOME BOX
+========================================================= */
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 26px;
+  margin-bottom: 22px;
+
+  border:
+    1px solid var(--border-green);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 210, 106, 0.12),
+      rgba(0, 194, 255, 0.08)
+    );
+}
+
+.welcome.small {
+  padding: 20px 24px;
+}
+
+.welcome > div > span {
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.welcome h2 {
+  margin: 8px 0;
+
+  font-size:
+    clamp(28px, 3vw, 42px);
+
+  line-height: 1.1;
+}
+
+.welcome p {
+  color: var(--text-soft);
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   BUYER METRICS
+========================================================= */
+
+.metrics {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.metrics article {
+  padding: 22px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.metrics article:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    var(--border-green);
+}
+
+.metrics span {
+  color: var(--muted);
+}
+
+.metrics b {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--primary);
+
+  font-size: 36px;
+}
+
+/* =========================================================
+   BUYER TWO COLUMN LAYOUT
+========================================================= */
+
+.two-col {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 20px;
+}
+
+.dashboard-spacing {
+  margin-top: 22px;
+}
+
+/* =========================================================
+   BUYER PROGRESS
+========================================================= */
+
+.progress-list {
+  display: grid;
+  gap: 15px;
+}
+
+.progress-item {
+  padding: 13px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(6, 17, 29, 0.55);
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 9px;
+}
+
+.progress-text span {
+  color: var(--text-soft);
+}
+
+.progress-text b {
+  color: var(--primary);
+}
+
+.progress-track {
+  height: 9px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.progress-track span {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary),
+      var(--cyan)
+    );
+}
+
+/* =========================================================
+   BUYER ACTIVITY
+========================================================= */
+
+.activity-list {
+  display: grid;
+  gap: 13px;
+}
+
+.activity-list > div {
+  display: grid;
+  grid-template-columns:
+    auto minmax(0, 1fr) auto;
+
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(6, 17, 29, 0.55);
+}
+
+.activity-list span {
+  color: var(--primary);
+
+  font-weight: 850;
+}
+
+.activity-list p {
+  color: var(--text-soft);
+
+  line-height: 1.5;
+}
+
+.activity-list b {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   MARKETPLACE TOOLBAR
+========================================================= */
+
+.toolbar {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) 220px;
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   BUYER CREDIT GRID
+========================================================= */
+
+.credit-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  align-items: stretch;
+  gap: 24px;
+}
+
+/* =========================================================
+   BUYER CREDIT CARD
+========================================================= */
+
+.credit {
+  min-width: 0;
+  min-height: 520px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 26px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.credit:hover {
+  transform: translateY(-8px);
+
+  border-color:
+    var(--primary);
+
+  box-shadow:
+    var(--shadow);
+}
+
+.credit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  min-height: 30px;
+}
+
+.credit-top small {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  overflow-wrap: anywhere;
+}
+
+.pill {
+  width: fit-content;
+
+  padding: 7px 11px;
+
+  border:
+    1px solid var(--border-green);
+
+  border-radius: 999px;
+
+  color: var(--primary);
+
+  background:
+    var(--primary-soft);
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.credit h3 {
+  min-height: 60px;
+
+  margin: 20px 0 10px;
+
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.credit > p {
+  min-height: 92px;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CREDIT INFORMATION
+========================================================= */
+
+.credit-info {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin: 18px 0;
+}
+
+.credit-info > div {
+  min-width: 0;
+
+  padding: 13px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 14px;
+
+  background:
+    rgba(6, 17, 29, 0.62);
+}
+
+.credit-info span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.credit-info b {
+  display: block;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   BUYER BARCODE
+========================================================= */
+
+.credit .barcode {
+  width: 100%;
+  height: 72px;
+
+  display: block;
+  flex-shrink: 0;
+
+  margin-top: auto;
+  margin-bottom: 20px;
+
+  border:
+    8px solid #ffffff;
+
+  border-radius: 14px;
+
+  background-color:
+    #ffffff;
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      #07131f 0,
+      #07131f 4px,
+      #ffffff 4px,
+      #ffffff 8px,
+      #07131f 8px,
+      #07131f 11px,
+      #ffffff 11px,
+      #ffffff 16px
+    );
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.14);
+
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================================
+   BUY CREDIT BUTTON
+========================================================= */
+
+.credit .btn {
+  width: 100%;
+
+  min-height: 46px;
+
+  margin-top: 0;
+
+  border-radius: 14px;
+}
+
+/* =========================================================
+   BUYER TABLES
+========================================================= */
+
+.table-wrap {
+  overflow-x: auto;
+
+  padding: 18px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.table-wrap table {
+  width: 100%;
+  min-width: 720px;
+
+  border-collapse: collapse;
+}
+
+.table-wrap th,
+.table-wrap td {
+  padding: 15px;
+
+  border-bottom:
+    1px solid var(--border);
+
+  text-align: left;
+}
+
+.table-wrap th {
+  color: var(--muted);
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.table-wrap td {
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   CERTIFICATE PREVIEW
+========================================================= */
+
+.certificate-preview {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.fake-qr {
+  width: 150px;
+  height: 150px;
+
+  display: grid;
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 5px;
+  flex-shrink: 0;
+
+  padding: 8px;
+
+  border-radius: 12px;
+
+  background: white;
+}
+
+.fake-qr div {
+  border-radius: 5px;
+
+  background:
+    #07131f;
+}
+
+.certificate-details {
+  display: grid;
+  gap: 10px;
+}
+
+.certificate-details p {
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+.certificate-details b {
+  color: var(--text);
+}
+
+/* =========================================================
+   BUYER PROFILE GRID
+========================================================= */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.profile-grid article {
+  min-width: 0;
+
+  padding: 22px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.98),
+      rgba(16, 35, 55, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.profile-grid article span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--muted);
+}
+
+.profile-grid article b {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   BUY MODAL
+========================================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    rgba(1, 7, 12, 0.82);
+
+  backdrop-filter:
+    blur(8px);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+
+  width: min(100%, 470px);
+
+  padding: 28px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 45, 68, 0.99),
+      rgba(16, 35, 55, 0.99)
+    );
+
+  box-shadow:
+    var(--shadow);
+}
+
+.modal-box h2 {
+  padding-right: 45px;
+
+  font-size: 30px;
+}
+
+.modal-description {
+  margin: 8px 0 20px;
+
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+.modal-box form {
+  display: grid;
+  gap: 16px;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 12px;
+
+  color: var(--text);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  font-size: 25px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.close:hover {
+  color: #ff9aa3;
+
+  background:
+    rgba(255, 95, 109, 0.12);
+}
+
+.purchase-summary {
+  display: grid;
+  gap: 10px;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(6, 17, 29, 0.62);
+}
+
+.purchase-summary > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.purchase-summary span {
+  color: var(--muted);
+}
+
+.purchase-summary b {
+  color: var(--primary);
+}
+
+/* =========================================================
+   BUYER RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .metrics,
+  .profile-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .credit-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+
+    height: auto;
+  }
+
+  .side-nav {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .logout {
+    margin-top: 20px;
+  }
+
+  .dash {
+    padding: 20px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .dash {
+    padding: 15px;
+  }
+
+  .dash-head,
+  .welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .metrics,
+  .profile-grid,
+  .credit-grid,
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .side-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .credit {
+    min-height: auto;
+  }
+
+  .credit h3,
+  .credit > p {
+    min-height: auto;
+  }
+
+  .credit-info {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-list > div {
+    grid-template-columns: 1fr;
+  }
+
+  .certificate-preview {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fake-qr {
+    width: 130px;
+    height: 130px;
+  }
+}
+/* CARDS STRAIGHT, BUTTONS SLIGHTLY ROUNDED */
+
+.panel,
+.welcome,
+.metrics article,
+.process-grid article,
+.stats > div,
+.auth-card,
+.role,
+.pipeline-card,
+.step,
+.profile,
+.credit,
+.credit-info > div,
+.table-wrap,
+.listing-preview,
+.upload-section,
+.progress-item,
+.activity-list > div,
+.audit-list article,
+.profile-grid article,
+.modal-box {
+  border-radius: 0 !important;
+}
+
+.btn,
+input,
+select,
+textarea,
+.side,
+.verified,
+.pill,
+.close {
+  border-radius: 6px !important;
+}
