@@ -1,0 +1,272 @@
+[
+  {
+    "producer_id": "IES-GU-1000",
+    "name": "Wind Farm - Gujarat Site 1",
+    "state": "Gujarat",
+    "energy_type": "wind",
+    "capacity_kw": 120,
+    "monthly_generation_kwh": 23765,
+    "grid_fossil_fuel_percent": 60
+  },
+  {
+    "producer_id": "IES-PU-1001",
+    "name": "Wind Farm - Punjab Site 2",
+    "state": "Punjab",
+    "energy_type": "wind",
+    "capacity_kw": 20,
+    "monthly_generation_kwh": 2336,
+    "grid_fossil_fuel_percent": 59
+  },
+  {
+    "producer_id": "IES-HA-1002",
+    "name": "Wind Farm - Haryana Site 3",
+    "state": "Haryana",
+    "energy_type": "wind",
+    "capacity_kw": 50,
+    "monthly_generation_kwh": 10273,
+    "grid_fossil_fuel_percent": 77
+  },
+  {
+    "producer_id": "IES-RA-1003",
+    "name": "Solar Rooftop - Rajasthan Site 4",
+    "state": "Rajasthan",
+    "energy_type": "solar",
+    "capacity_kw": 50,
+    "monthly_generation_kwh": 8618,
+    "grid_fossil_fuel_percent": 80
+  },
+  {
+    "producer_id": "IES-MA-1004",
+    "name": "Solar Rooftop - Maharashtra Site 5",
+    "state": "Maharashtra",
+    "energy_type": "solar",
+    "capacity_kw": 120,
+    "monthly_generation_kwh": 12835,
+    "grid_fossil_fuel_percent": 58
+  },
+  {
+    "producer_id": "IES-MA-1005",
+    "name": "Wind Farm - Maharashtra Site 6",
+    "state": "Maharashtra",
+    "energy_type": "wind",
+    "capacity_kw": 20,
+    "monthly_generation_kwh": 4266,
+    "grid_fossil_fuel_percent": 69
+  },
+  {
+    "producer_id": "IES-PU-1006",
+    "name": "Solar Rooftop - Punjab Site 7",
+    "state": "Punjab",
+    "energy_type": "solar",
+    "capacity_kw": 150,
+    "monthly_generation_kwh": 43044,
+    "grid_fossil_fuel_percent": 67
+  },
+  {
+    "producer_id": "IES-HA-1007",
+    "name": "Solar Rooftop - Haryana Site 8",
+    "state": "Haryana",
+    "energy_type": "solar",
+    "capacity_kw": 20,
+    "monthly_generation_kwh": 3287,
+    "grid_fossil_fuel_percent": 70
+  },
+  {
+    "producer_id": "IES-MA-1008",
+    "name": "Solar Rooftop - Maharashtra Site 9",
+    "state": "Maharashtra",
+    "energy_type": "solar",
+    "capacity_kw": 50,
+    "monthly_generation_kwh": 11161,
+    "grid_fossil_fuel_percent": 61
+  },
+  {
+    "producer_id": "IES-MA-1009",
+    "name": "Wind Farm - Maharashtra Site 10",
+    "state": "Maharashtra",
+    "energy_type": "wind",
+    "capacity_kw": 50,
+    "monthly_generation_kwh": 14704,
+    "grid_fossil_fuel_percent": 78
+  },
+  {
+    "producer_id": "IES-MA-1010",
+    "name": "Solar Rooftop - Maharashtra Site 11",
+    "state": "Maharashtra",
+    "energy_type": "solar",
+    "capacity_kw": 120,
+    "monthly_generation_kwh": 16289,
+    "grid_fossil_fuel_percent": 76
+  },
+  {
+    "producer_id": "IES-RA-1011",
+    "name": "Solar Rooftop - Rajasthan Site 12",
+    "state": "Rajasthan",
+    "energy_type": "solar",
+    "capacity_kw": 200,
+    "monthly_generation_kwh": 39896,
+    "grid_fossil_fuel_percent": 59
+  },
+  {
+    "producer_id": "IES-PU-1012",
+    "name": "Biomass Unit - Punjab Site 13",
+    "state": "Punjab",
+    "energy_type": "biomass",
+    "capacity_kw": 200,
+    "monthly_generation_kwh": 18142,
+    "grid_fossil_fuel_percent": 65
+  },
+  {
+    "producer_id": "IES-HA-1013",
+    "name": "Solar Rooftop - Haryana Site 14",
+    "state": "Haryana",
+    "energy_type": "solar",
+    "capacity_kw": 80,
+    "monthly_generation_kwh": 8121,
+    "grid_fossil_fuel_percent": 70
+  },
+  {
+    "producer_id": "IES-RA-1014",
+    "name": "Wind Farm - Rajasthan Site 15",
+    "state": "Rajasthan",
+    "energy_type": "wind",
+    "capacity_kw": 80,
+    "monthly_generation_kwh": 19318,
+    "grid_fossil_fuel_percent": 62
+  },
+  {
+    "producer_id": "IES-KA-1015",
+    "name": "Wind Farm - Karnataka Site 16",
+    "state": "Karnataka",
+    "energy_type": "wind",
+    "capacity_kw": 200,
+    "monthly_generation_kwh": 22465,
+    "grid_fossil_fuel_percent": 57
+  },
+  {
+    "producer_id": "IES-HA-1016",
+    "name": "Wind Farm - Haryana Site 17",
+    "state": "Haryana",
+    "energy_type": "wind",
+    "capacity_kw": 20,
+    "monthly_generation_kwh": 1802,
+    "grid_fossil_fuel_percent": 67
+  },
+  {
+    "producer_id": "IES-MA-1017",
+    "name": "Solar Rooftop - Maharashtra Site 18",
+    "state": "Maharashtra",
+    "energy_type": "solar",
+    "capacity_kw": 80,
+    "monthly_generation_kwh": 6471,
+    "grid_fossil_fuel_percent": 70
+  },
+  {
+    "producer_id": "IES-KA-1018",
+    "name": "Wind Farm - Karnataka Site 19",
+    "state": "Karnataka",
+    "energy_type": "wind",
+    "capacity_kw": 200,
+    "monthly_generation_kwh": 26749,
+    "grid_fossil_fuel_percent": 73
+  },
+  {
+    "producer_id": "IES-KA-1019",
+    "name": "Biomass Unit - Karnataka Site 20",
+    "state": "Karnataka",
+    "energy_type": "biomass",
+    "capacity_kw": 200,
+    "monthly_generation_kwh": 40278,
+    "grid_fossil_fuel_percent": 80
+  },
+  {
+    "producer_id": "IES-HA-1020",
+    "name": "Wind Farm - Haryana Site 21",
+    "state": "Haryana",
+    "energy_type": "wind",
+    "capacity_kw": 80,
+    "monthly_generation_kwh": 15304,
+    "grid_fossil_fuel_percent": 67
+  },
+  {
+    "producer_id": "IES-GU-1021",
+    "name": "Solar Rooftop - Gujarat Site 22",
+    "state": "Gujarat",
+    "energy_type": "solar",
+    "capacity_kw": 150,
+    "monthly_generation_kwh": 32959,
+    "grid_fossil_fuel_percent": 57
+  },
+  {
+    "producer_id": "IES-HA-1022",
+    "name": "Biomass Unit - Haryana Site 23",
+    "state": "Haryana",
+    "energy_type": "biomass",
+    "capacity_kw": 80,
+    "monthly_generation_kwh": 18126,
+    "grid_fossil_fuel_percent": 80
+  },
+  {
+    "producer_id": "IES-TA-1023",
+    "name": "Wind Farm - Tamil Nadu Site 24",
+    "state": "Tamil Nadu",
+    "energy_type": "wind",
+    "capacity_kw": 200,
+    "monthly_generation_kwh": 44891,
+    "grid_fossil_fuel_percent": 66
+  },
+  {
+    "producer_id": "IES-PU-1024",
+    "name": "Biomass Unit - Punjab Site 25",
+    "state": "Punjab",
+    "energy_type": "biomass",
+    "capacity_kw": 120,
+    "monthly_generation_kwh": 23136,
+    "grid_fossil_fuel_percent": 60
+  },
+  {
+    "producer_id": "IES-MA-1025",
+    "name": "Wind Farm - Maharashtra Site 26",
+    "state": "Maharashtra",
+    "energy_type": "wind",
+    "capacity_kw": 50,
+    "monthly_generation_kwh": 10460,
+    "grid_fossil_fuel_percent": 63
+  },
+  {
+    "producer_id": "IES-MA-1026",
+    "name": "Solar Rooftop - Maharashtra Site 27",
+    "state": "Maharashtra",
+    "energy_type": "solar",
+    "capacity_kw": 150,
+    "monthly_generation_kwh": 38375,
+    "grid_fossil_fuel_percent": 78
+  },
+  {
+    "producer_id": "IES-PU-1027",
+    "name": "Biomass Unit - Punjab Site 28",
+    "state": "Punjab",
+    "energy_type": "biomass",
+    "capacity_kw": 80,
+    "monthly_generation_kwh": 17731,
+    "grid_fossil_fuel_percent": 61
+  },
+  {
+    "producer_id": "IES-PU-1028",
+    "name": "Wind Farm - Punjab Site 29",
+    "state": "Punjab",
+    "energy_type": "wind",
+    "capacity_kw": 20,
+    "monthly_generation_kwh": 1774,
+    "grid_fossil_fuel_percent": 68
+  },
+  {
+    "producer_id": "IES-TA-1029",
+    "name": "Biomass Unit - Tamil Nadu Site 30",
+    "state": "Tamil Nadu",
+    "energy_type": "biomass",
+    "capacity_kw": 20,
+    "monthly_generation_kwh": 2757,
+    "grid_fossil_fuel_percent": 72
+  }
+]
