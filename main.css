@@ -8,40 +8,84 @@
 ========================================================= */
 
 :root {
-  --primary: #00d26a;
-  --primary-dark: #00a651;
-  --primary-light: #4bf59e;
-  --primary-soft: rgba(0, 210, 106, 0.12);
+  --primary: #56c596;
+  --primary-dark: #3a9f73;
+  --primary-light: #a3eed1;
+  --primary-soft: rgba(86, 197, 150, 0.12);
 
   --cyan: #00c2ff;
   --cyan-soft: rgba(0, 194, 255, 0.12);
 
-  --background: #06111d;
-  --background-light: #0a1928;
+  --background: #071524;
+  --background-light: #0b2138;
 
-  --surface: #102337;
-  --surface-light: #152d44;
-  --surface-hover: #19364f;
+  --surface: #112b48;
+  --surface-light: #183b62;
+  --surface-hover: #1e4672;
 
-  --text: #f7fbff;
-  --text-soft: #c5d3df;
-  --muted: #8fa4b7;
+  --text: #f4f7f5;
+  --text-soft: #c8d7cf;
+  --muted: #829c8e;
 
-  --border: rgba(145, 169, 188, 0.18);
-  --border-green: rgba(0, 210, 106, 0.38);
+  --border: rgba(130, 156, 142, 0.18);
+  --border-green: rgba(86, 197, 150, 0.38);
   --border-cyan: rgba(0, 194, 255, 0.38);
 
-  --success: #00d26a;
+  --success: #56c596;
   --warning: #ffc857;
   --danger: #ff5f6d;
 
-  --shadow:
-    0 20px 60px rgba(0, 0, 0, 0.34);
-
-  --shadow-soft:
-    0 12px 32px rgba(0, 0, 0, 0.22);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.3);
 
   --container: 1180px;
+
+  /* Theme-specific complex styles */
+  --bg-gradient: radial-gradient(circle at top left, rgba(86, 197, 150, 0.12), transparent 36%), radial-gradient(circle at top right, rgba(0, 194, 255, 0.08), transparent 34%), var(--background);
+  --sidebar-bg: linear-gradient(180deg, #071524 0%, #0b2138 100%);
+  --card-step-bg: linear-gradient(135deg, #112b48 0%, #183b62 50%, #112b48 100%);
+  --process-bg: radial-gradient(circle at top, rgba(86, 197, 150, 0.1), transparent 32%), linear-gradient(135deg, #071524, #0b2138);
+  --footer-bg: linear-gradient(180deg, #050e18, #02080f);
+  --btn-primary-shadow: 0 14px 36px rgba(86, 197, 150, 0.24);
+}
+
+[data-theme="light"] {
+  --primary: #1c8f56;
+  --primary-dark: #13633c;
+  --primary-light: #a7f3d0;
+  --primary-soft: rgba(28, 143, 86, 0.12);
+
+  --cyan: #0074b3;
+  --cyan-soft: rgba(0, 116, 179, 0.12);
+
+  --background: #f9f8f4;
+  --background-light: #f0eee4;
+
+  --surface: #ffffff;
+  --surface-light: #f4f2e8;
+  --surface-hover: #ebe8dc;
+
+  --text: #162e21;
+  --text-soft: #32523f;
+  --muted: #6a7e72;
+
+  --border: rgba(22, 46, 33, 0.12);
+  --border-green: rgba(28, 143, 86, 0.38);
+  --border-cyan: rgba(0, 116, 179, 0.38);
+
+  --success: #1c8f56;
+  --warning: #b27b00;
+  --danger: #b91c1c;
+
+  --shadow: 0 20px 60px rgba(22, 46, 33, 0.08);
+  --shadow-soft: 0 12px 32px rgba(22, 46, 33, 0.05);
+
+  --bg-gradient: radial-gradient(circle at top left, rgba(28, 143, 86, 0.08), transparent 36%), radial-gradient(circle at top right, rgba(0, 116, 179, 0.06), transparent 34%), var(--background);
+  --sidebar-bg: linear-gradient(180deg, #f0eee4 0%, #f9f8f4 100%);
+  --card-step-bg: linear-gradient(135deg, #ffffff 0%, #f4f2e8 50%, #ffffff 100%);
+  --process-bg: radial-gradient(circle at top, rgba(28, 143, 86, 0.06), transparent 32%), linear-gradient(135deg, #f0eee4, #f9f8f4);
+  --footer-bg: linear-gradient(180deg, #f0eee4, #ebe8dc);
+  --btn-primary-shadow: 0 14px 36px rgba(28, 143, 86, 0.2);
 }
 
 /* =========================================================
@@ -69,18 +113,7 @@ body {
 
   color: var(--text);
 
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(0, 210, 106, 0.13),
-      transparent 36%
-    ),
-    radial-gradient(
-      circle at top right,
-      rgba(0, 194, 255, 0.1),
-      transparent 34%
-    ),
-    var(--background);
+  background: var(--bg-gradient);
 
   overflow-x: hidden;
 }
@@ -199,7 +232,7 @@ img {
     );
 
   box-shadow:
-    0 14px 36px rgba(0, 210, 106, 0.24);
+    var(--btn-primary-shadow);
 }
 
 .btn.primary:hover {
@@ -414,8 +447,8 @@ textarea {
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.98),
-      rgba(16, 35, 55, 0.98)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
@@ -522,8 +555,8 @@ textarea {
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.92),
-      rgba(16, 35, 55, 0.92)
+      var(--surface-light),
+      var(--surface)
     );
 
   border:
@@ -568,8 +601,8 @@ textarea {
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.97),
-      rgba(11, 27, 43, 0.97)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
@@ -636,13 +669,7 @@ textarea {
 
   border-radius: 18px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #102337 0%,
-      #183a55 50%,
-      #102337 100%
-    );
+  background: var(--card-step-bg);
 }
 
 .step.active {
@@ -652,8 +679,8 @@ textarea {
   background:
     linear-gradient(
       135deg,
-      rgba(0, 210, 106, 0.24),
-      rgba(0, 194, 255, 0.17)
+      var(--primary-soft),
+      var(--cyan-soft)
     );
 }
 
@@ -695,17 +722,7 @@ textarea {
 .process {
   padding: 100px 0;
 
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(0, 210, 106, 0.1),
-      transparent 32%
-    ),
-    linear-gradient(
-      135deg,
-      #040d16,
-      #0b1b2b
-    );
+  background: var(--process-bg);
 
   border-top:
     1px solid var(--border);
@@ -842,8 +859,8 @@ textarea {
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.98),
-      rgba(16, 35, 55, 0.98)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
@@ -966,12 +983,7 @@ textarea {
 footer {
   padding: 70px 0 24px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #050e18,
-      #02080f
-    );
+  background: var(--footer-bg);
 }
 
 .footer-grid {
@@ -1149,3 +1161,61 @@ textarea,
 .close {
   border-radius: 6px !important;
 }
+
+/* =========================================================
+   THEME TOGGLE BUTTON STYLES
+   ========================================================= */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50% !important; /* Force circular theme button shape */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text);
+  transition: all 0.3s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.05);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Hide/Show icons based on theme attributes */
+[data-theme="light"] .theme-toggle .theme-toggle-sun {
+  display: none;
+}
+[data-theme="light"] .theme-toggle .theme-toggle-moon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .theme-toggle-sun {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle .theme-toggle-moon {
+  display: none;
+}
+
+/* Header action enhancements */
+.dash-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

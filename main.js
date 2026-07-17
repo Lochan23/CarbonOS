@@ -12,6 +12,8 @@
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  initializeThemeToggle();
+  syncAuthenticatedUserTheme();
   initializeAuthTabs();
   initializeRoleSelection();
   initializeSignupForm();
@@ -238,15 +240,18 @@ function initializeSignupForm() {
     saveUsers(existingUsers);
     saveCurrentUser(newUser);
 
-    showMessage(
-      messageElement,
-      "Account created successfully. Redirecting...",
-      "success"
-    );
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    supabaseMock.updateThemePreference(newUser.id, currentTheme).then(() => {
+      showMessage(
+        messageElement,
+        "Account created successfully. Redirecting...",
+        "success"
+      );
 
-    setTimeout(() => {
-      redirectUserByRole(role);
-    }, 900);
+      setTimeout(() => {
+        redirectUserByRole(role);
+      }, 900);
+    });
   });
 }
 
@@ -354,15 +359,20 @@ function initializeLoginForm() {
 
     saveCurrentUser(matchedUser);
 
-    showMessage(
-      messageElement,
-      "Login successful. Redirecting...",
-      "success"
-    );
+    supabaseMock.getThemePreference(matchedUser.id).then(theme => {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('carbonOS_theme', theme);
+      
+      showMessage(
+        messageElement,
+        "Login successful. Redirecting...",
+        "success"
+      );
 
-    setTimeout(() => {
-      redirectUserByRole(matchedUser.role);
-    }, 700);
+      setTimeout(() => {
+        redirectUserByRole(matchedUser.role);
+      }, 700);
+    });
   });
 }
 
@@ -628,4 +638,83 @@ function capitalizeWord(word) {
     word.charAt(0).toUpperCase() +
     word.slice(1).toLowerCase()
   );
+}
+
+/* =========================================================
+   MOCK SUPABASE DB WRAPPER & THEME HANDLERS
+   ========================================================= */
+const supabaseMock = {
+  async updateThemePreference(userId, theme) {
+    console.log(`[Supabase] Asynchronously syncing theme preference "${theme}" for user ID: ${userId} via atomic update...`);
+    try {
+      const users = JSON.parse(localStorage.getItem("karbonCredUsers")) || [];
+      const userIndex = users.findIndex(u => u.id === userId);
+      if (userIndex !== -1) {
+        users[userIndex].theme_preference = theme;
+        localStorage.setItem("karbonCredUsers", JSON.stringify(users));
+      }
+      
+      const currentUser = JSON.parse(localStorage.getItem("karbonCredCurrentUser"));
+      if (currentUser && currentUser.id === userId) {
+        currentUser.theme_preference = theme;
+        localStorage.setItem("karbonCredCurrentUser", JSON.stringify(currentUser));
+      }
+    } catch (e) {
+      console.error("[Supabase Mock] Error syncing theme preference:", e);
+    }
+    return { success: true };
+  },
+
+  async getThemePreference(userId) {
+    console.log(`[Supabase] Fetching theme preference for user ID: ${userId}...`);
+    try {
+      const users = JSON.parse(localStorage.getItem("karbonCredUsers")) || [];
+      const user = users.find(u => u.id === userId);
+      return user ? user.theme_preference || 'dark' : 'dark';
+    } catch (e) {
+      console.error("[Supabase Mock] Error fetching theme preference:", e);
+      return 'dark';
+    }
+  }
+};
+
+function initializeThemeToggle() {
+  const themeToggleBtn = document.getElementById("themeToggle");
+  if (!themeToggleBtn) {
+    return;
+  }
+
+  themeToggleBtn.addEventListener("click", async () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    // Apply layout change instantly
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('carbonOS_theme', newTheme);
+    console.log(`[Theme] Local storage updated: carbonOS_theme = ${newTheme}`);
+
+    // Sync theme choice to Supabase asynchronously if authenticated
+    const currentUser = getCurrentUser();
+    if (currentUser && currentUser.id) {
+      try {
+        await supabaseMock.updateThemePreference(currentUser.id, newTheme);
+      } catch (err) {
+        console.error("[Theme] Failed to update preference in Supabase:", err);
+      }
+    }
+  });
+}
+
+function syncAuthenticatedUserTheme() {
+  const currentUser = getCurrentUser();
+  if (currentUser && currentUser.id) {
+    supabaseMock.getThemePreference(currentUser.id).then(savedTheme => {
+      const currentLocalTheme = localStorage.getItem('carbonOS_theme') || 'dark';
+      if (savedTheme !== currentLocalTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        localStorage.setItem('carbonOS_theme', savedTheme);
+        console.log(`[Theme] Aligned theme with Supabase: ${savedTheme}`);
+      }
+    });
+  }
 }

@@ -31,12 +31,7 @@
 
   padding: 24px 20px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #07131f 0%,
-      #0b1b2b 100%
-    );
+  background: var(--sidebar-bg);
 
   border-right:
     1px solid var(--border);
@@ -59,8 +54,7 @@
 
   border-radius: 18px;
 
-  background:
-    rgba(16, 35, 55, 0.82);
+  background: var(--surface-light);
 }
 
 .avatar {
@@ -290,8 +284,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.98),
-      rgba(16, 35, 55, 0.98)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
@@ -491,8 +485,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.98),
-      rgba(16, 35, 55, 0.98)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
@@ -685,8 +679,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.98),
-      rgba(16, 35, 55, 0.98)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
@@ -797,8 +791,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.98),
-      rgba(16, 35, 55, 0.98)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
@@ -858,8 +852,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(21, 45, 68, 0.99),
-      rgba(16, 35, 55, 0.99)
+      var(--surface-light),
+      var(--surface)
     );
 
   box-shadow:
